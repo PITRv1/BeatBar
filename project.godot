@@ -26,6 +26,14 @@ window/stretch/mode="viewport"
 
 project/assembly_name="BeatBar"
 
+[file_customization]
+
+folder_colors={
+"res://Map/": "blue",
+"res://Player/": "yellow",
+"res://Systems/": "teal"
+}
+
 [input]
 
 forward={
