@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://baakfm3ug6mld"]
+[gd_scene load_steps=3 format=3 uid="uid://baakfm3ug6mld"]
 
-[node name="TemplateNPC" type="Node3D"]
+[ext_resource type="Script" uid="uid://1m3kyyh6ooia" path="res://Systems/NpcSystem/BaseNpc.cs" id="1_pgbsw"]
+[ext_resource type="PackedScene" uid="uid://bmkx5v22wa2w1" path="res://Systems/IntractionSystem/InteractionReceiver.tscn" id="2_b3j2t"]
+
+[node name="TemplateNPC" type="Node3D" node_paths=PackedStringArray("nameLabel", "visualsContainer")]
+script = ExtResource("1_pgbsw")
+nameLabel = NodePath("Label3D")
+visualsContainer = NodePath("Visuals")
+
+[node name="Label3D" type="Label3D" parent="."]
+billboard = 2
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="InteractionReciever" parent="." instance=ExtResource("2_b3j2t")]
+
+[connection signal="InteractionReceived" from="InteractionReciever" to="." method="EngagePlayer"]

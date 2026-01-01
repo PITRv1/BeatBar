@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://4fcbyy6ppi4e"]
+
+[ext_resource type="Script" uid="uid://dng6pnoh6x0ub" path="res://Systems/IntractionSystem/InteractionInitiator.cs" id="1_2jgmg"]
+
+[node name="InteractionInitiator" type="RayCast3D"]
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("1_2jgmg")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmkx5v22wa2w1"]
+
+[ext_resource type="Script" uid="uid://dktxe0lnj6w2u" path="res://Systems/IntractionSystem/InteractionReceiver.cs" id="1_2hhni"]
+
+[node name="InteractionReciever" type="Area3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_2hhni")
