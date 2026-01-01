@@ -17,6 +17,7 @@ public partial class Player : CharacterBody3D
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
+        GD.Print("HEllo world!");
     }
 
 
