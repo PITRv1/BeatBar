@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dng6pnoh6x0ub" path="res://Systems/IntractionSystem/InteractionInitiator.cs" id="1_2jgmg"]
 
 [node name="InteractionInitiator" type="RayCast3D"]
+target_position = Vector3(0, 0, 0)
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false

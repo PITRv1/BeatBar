@@ -8,8 +8,8 @@ public partial class BaseNpc : Node3D
     [ExportGroup("NPC properties")]
     [Export] public string npcName { get; set; }
     
-    [Export(PropertyHint.MultilineText)] public string introMessage { get; set; } 
-    [Export(PropertyHint.MultilineText)] public string outroMessage { get; set; }
+    [Export] public Godot.Collections.Array<string> introMessageOptions { get; set; }
+    [Export] public Godot.Collections.Array<string> outroMessageOptions { get; set; }
 
     [Export] public int reward {get; set;}
     
@@ -23,7 +23,10 @@ public partial class BaseNpc : Node3D
     [Export] public Label3D nameLabel {get; set;}
     [Export] public Node3D visualsContainer {get; set;}
 
-
+    public override void _Ready()
+    {
+        nameLabel.Text = npcName;
+    }
 
     private void DisengagePlayer()
     {
@@ -32,7 +35,7 @@ public partial class BaseNpc : Node3D
 
     private void EngagePlayer()
     {
-        
+        GD.Print("you gonna get it buster");
     }
 
     private void StartFight()

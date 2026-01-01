@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://rdwbogng5ew7"]
+[gd_scene load_steps=9 format=3 uid="uid://rdwbogng5ew7"]
 
-[ext_resource type="PackedScene" uid="uid://dkn7bmd732yw7" path="res://Player/Player.tscn" id="1_ro55w"]
+[ext_resource type="PackedScene" uid="uid://dkn7bmd732yw7" path="res://Player/Player.tscn" id="1_7s3fs"]
+[ext_resource type="PackedScene" uid="uid://dbhoqiqg8q4iv" path="res://Systems/NpcSystem/Npcs/BeatingBuddy.tscn" id="2_2623n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ro55w"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -37,5 +38,8 @@ use_collision = true
 size = Vector3(30.91211, 0.32202148, 29.10376)
 material = SubResource("StandardMaterial3D_86j4t")
 
-[node name="Player" parent="." instance=ExtResource("1_ro55w")]
+[node name="Player" parent="." instance=ExtResource("1_7s3fs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2175446, 0.16101074, 3.2439985)
+
+[node name="BeatingBuddy" parent="." instance=ExtResource("2_2623n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1328201, 1.0195913, -1.1748323)
