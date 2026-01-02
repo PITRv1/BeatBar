@@ -1,7 +1,7 @@
 ~ start
 {{data.beaterName}}: Im gonna wrestle your ass buster.
 - Fight
-	{{data.beaterName}}: Alright get down!
+	{{data.beaterName}}: Kill yourself [speed=0.2]NOW!
 	do StartFight()
 - Flee
 	{{data.beaterName}}: You coward!
