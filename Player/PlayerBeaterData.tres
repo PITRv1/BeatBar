@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BeaterData" load_steps=2 format=3 uid="uid://dp43jtl7p2d4x"]
+
+[ext_resource type="Script" uid="uid://bvemus4i1r3ej" path="res://Systems/NpcSystem/BeaterData.cs" id="1_bucy5"]
+
+[resource]
+script = ExtResource("1_bucy5")
+beaterName = "You"
+reward = 999999999
+damage = 1.0
+beatSpeed = -1.0
+metadata/_custom_type_script = "uid://bvemus4i1r3ej"

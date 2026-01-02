@@ -5,6 +5,7 @@ public partial class Global : Node
 {
     public static Global Instance { get; private set; }
     public Player player;
+    public GameManager gameManager;
 
     public override void _EnterTree()
     {

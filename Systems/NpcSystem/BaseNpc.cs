@@ -5,14 +5,18 @@ using System.Diagnostics.CodeAnalysis;
 
 public partial class BaseNpc : Node3D
 {
+    [Export] public Marker3D fightPlayerPosition {get;set;} // this is where the player will be moved when fighting the specific goon
+
     [Export] public BeaterDataComponent beaterDataComponent {get;set;}
     [Export] public Label3D nameLabel {get; set;}
     [Export] public Node3D visualsContainer {get; set;}
     [Export] public Sprite3D beaterSprite {get; set;}
     [Export] public Marker3D eyePosition {get; set;}
 
-
     [Export] private float watchDistance {get; set;} = 5.0f;
+
+    Tween tween;
+
 
     public override void _Ready()
     {
@@ -33,7 +37,6 @@ public partial class BaseNpc : Node3D
             "start",
             [this, new Godot.Collections.Dictionary { 
                 {"data", beaterDataComponent.beaterData }
-                
                 }
             ]
         );
@@ -43,7 +46,19 @@ public partial class BaseNpc : Node3D
 
     private void StartFight()
     {
+        SignalBus.Instance.EmitSignal(SignalBus.SignalName.FightStarted, this);
         
+        ResetTween();
+        tween.TweenProperty(
+            Global.Instance.player,
+            "global_position",
+            fightPlayerPosition.GlobalPosition,
+            1.0
+        )
+        .SetTrans(Tween.TransitionType.Cubic)
+        .SetEase(Tween.EaseType.InOut);
+
+
     }
 
     private void UpdateSpriteBillboard()
@@ -63,4 +78,10 @@ public partial class BaseNpc : Node3D
         UpdateSpriteBillboard();
     }
 
+
+    private void ResetTween()
+    {
+        if (tween != null) tween.Kill();   
+        tween = CreateTween();
+    }
 }

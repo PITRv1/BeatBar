@@ -8,6 +8,9 @@ public partial class SignalBus : Node
     [Signal] public delegate void EngagementStartedEventHandler(BaseNpc opponent);
     [Signal] public delegate void EngagementEndedEventHandler(BaseNpc opponent);
 
+    [Signal] public delegate void FightStartedEventHandler(BaseNpc opponent);
+    [Signal] public delegate void FightEndedEventHandler(Variant winner);
+
 
 
     public override void _EnterTree()

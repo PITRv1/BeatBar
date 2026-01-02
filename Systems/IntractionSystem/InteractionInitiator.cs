@@ -4,10 +4,12 @@ using System;
 public partial class InteractionInitiator : RayCast3D
 {
     [Export] private float handReach {get; set;} = 4.0f;
+    [Export] public bool blocked {get; set;} = false;
+
 
     public override void _Input(InputEvent @event)
     {
-        if (Input.IsActionJustPressed("interact"))
+        if (Input.IsActionJustPressed("interact") && !blocked)
         {
             BeginInteractionAttempt();
         }

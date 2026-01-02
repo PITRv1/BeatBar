@@ -41,7 +41,15 @@ material = SubResource("StandardMaterial3D_86j4t")
 [node name="Player" parent="." instance=ExtResource("1_7s3fs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2175446, 0.16101074, 3.2439985)
 
-[node name="BeatingBuddy" parent="." instance=ExtResource("2_2623n")]
+[node name="NPCS" type="Node3D" parent="."]
+
+[node name="BeatingBuddy" parent="NPCS" node_paths=PackedStringArray("fightPlayerPosition") instance=ExtResource("2_2623n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1328201, 0.20971704, -1.1748323)
-observeDistance = 0.0
+fightPlayerPosition = NodePath("../FightBuddyFightPos")
 metadata/_edit_group_ = true
+
+[node name="FightBuddyFightPos" type="Marker3D" parent="NPCS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1156092, 0, 0.88384414)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1797559, 0.571738, -0.2889489)

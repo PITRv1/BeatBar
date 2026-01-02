@@ -1,10 +1,10 @@
 ~ start
 {{data.beaterName}}: Im gonna wrestle your ass buster.
 - Fight
-	{{data.beaterName}}: You picked the first one.
+	{{data.beaterName}}: Alright get down!
+	do StartFight()
 - Flee
 	{{data.beaterName}}: You coward!
-
-do DisengagePlayer()
+	do DisengagePlayer()
 
 => END

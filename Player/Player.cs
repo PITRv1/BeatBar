@@ -11,6 +11,8 @@ public partial class Player : CharacterBody3D
 
     [ExportGroup("PlayerParts")]
     [Export] private Camera3D playerCam;
+    [Export] private InteractionInitiator interactionInitiator;
+    [Export] public BeaterDataComponent beaterDataComponent;
 
 
     private BaseNpc currentOpponent;
@@ -127,6 +129,7 @@ public partial class Player : CharacterBody3D
         Input.MouseMode = Input.MouseModeEnum.Visible;
 
         Velocity = Vector3.Zero;
+        interactionInitiator.blocked = true;
     }
 
     
@@ -135,6 +138,8 @@ public partial class Player : CharacterBody3D
         currentOpponent = null;
         currentState = States.FREE;
         Input.MouseMode = Input.MouseModeEnum.Captured;
+
+        interactionInitiator.blocked = false;
 
     }
 
