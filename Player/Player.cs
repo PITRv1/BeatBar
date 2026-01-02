@@ -12,11 +12,27 @@ public partial class Player : CharacterBody3D
     [ExportGroup("PlayerParts")]
     [Export] private Camera3D playerCam;
 
-    Vector2 mouseInput;
+
+    private BaseNpc currentOpponent;
+
+    private Vector2 mouseInput;
+    private States currentState = States.FREE;
+
+    public enum States
+    {
+        FREE,
+        ENGAGING
+    }
+
 
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
+        Global.Instance.player = this;
+
+        SignalBus.Instance.EngagementStarted += _OnEngagementStarted;
+        SignalBus.Instance.EngagementEnded += _OnEngagementEnded;
+
     }
 
 
@@ -55,11 +71,71 @@ public partial class Player : CharacterBody3D
         MoveAndSlide();
     }
 
+    private void _LockCameraToPoint(Vector3 targetPos, double delta)
+    {
+        Vector3 direction = (targetPos - GlobalPosition);
+        direction.Y = 0f;
+        direction = direction.Normalized();
+
+        if (direction.LengthSquared() > 0.001f)
+        {
+            Transform3D lookTransform = Transform.LookingAt(GlobalPosition + direction, Vector3.Up);
+            Transform = Transform.InterpolateWith(lookTransform, (float)delta * 8.0f);
+        }
+        
+
+        Vector3 camDirection = (targetPos - playerCam.GlobalPosition).Normalized();
+        float horizontalDist = new Vector2(camDirection.X, camDirection.Z).Length();
+        float targetXRotation = -Mathf.Atan2(camDirection.Y, horizontalDist);
+        targetXRotation = Mathf.Clamp(targetXRotation, Mathf.DegToRad(-90), Mathf.DegToRad(90));
+
+        float currentX = playerCam.Rotation.X;
+        float newX = Mathf.Lerp(currentX, targetXRotation, (float)delta * 8.0f);
+        playerCam.Rotation = new Vector3(newX, playerCam.Rotation.Y, playerCam.Rotation.Z);
+
+
+        mouseInput = Vector2.Zero;
+    }
+
+    private void UpdateStateMachine(double delta)
+    {
+        switch (currentState)
+        {
+            case States.FREE:
+                _UpdateCameraRotation();
+                _UpdateMovement(delta);
+
+            break;
+            
+            case States.ENGAGING:
+                _LockCameraToPoint(currentOpponent.eyePosition.GlobalPosition, delta);
+            break;
+        }
+    }
 
     public override void _PhysicsProcess(double delta)
     {
-        _UpdateCameraRotation();
-        _UpdateMovement(delta);
+        UpdateStateMachine(delta);
+    }
+
+    private void _OnEngagementStarted(BaseNpc opponent)
+    {
+        if (opponent == null) return;
+
+        currentOpponent = opponent;
+        currentState = States.ENGAGING;
+        Input.MouseMode = Input.MouseModeEnum.Visible;
+
+        Velocity = Vector3.Zero;
+    }
+
+    
+    private void _OnEngagementEnded(BaseNpc opponent)
+    {
+        currentOpponent = null;
+        currentState = States.FREE;
+        Input.MouseMode = Input.MouseModeEnum.Captured;
+
     }
 
 }

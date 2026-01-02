@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dbkmbeb6h1bi4"
+path="res://.godot/imported/intro.dialogue-1df10c0b8690545e0ed92d854202cc6b.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/BeatBuddy/intro.dialogue"
+dest_files=["res://.godot/imported/intro.dialogue-1df10c0b8690545e0ed92d854202cc6b.tres"]
+
+[params]
+
+defaults=true

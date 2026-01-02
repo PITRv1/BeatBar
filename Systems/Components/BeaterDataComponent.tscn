@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkaecaap2cggv"]
+
+[ext_resource type="Script" uid="uid://cncblegomj56c" path="res://Systems/Components/BeaterDataComponent.cs" id="1_2g6bf"]
+
+[node name="BeaterDataComponent" type="Node"]
+script = ExtResource("1_2g6bf")

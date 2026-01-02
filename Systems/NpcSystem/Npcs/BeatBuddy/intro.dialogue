@@ -1,0 +1,10 @@
+~ start
+{{data.beaterName}}: Im gonna wrestle your ass buster.
+- Fight
+	{{data.beaterName}}: You picked the first one.
+- Flee
+	{{data.beaterName}}: You coward!
+
+do DisengagePlayer()
+
+=> END
