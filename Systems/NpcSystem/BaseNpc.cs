@@ -23,9 +23,11 @@ public partial class BaseNpc : Node3D
         nameLabel.Text = beaterDataComponent.beaterData.beaterName;
     }
 
+
     private void DisengagePlayer()
     {
         SignalBus.Instance.EmitSignal(SignalBus.SignalName.EngagementEnded, this);
+        Global.Instance.player.GiveMoney(beaterDataComponent.beaterData.reward);
     }
 
     private void EngagePlayer()
@@ -57,8 +59,20 @@ public partial class BaseNpc : Node3D
         )
         .SetTrans(Tween.TransitionType.Cubic)
         .SetEase(Tween.EaseType.InOut);
+    }
 
+    public void FinishFight(bool didWin)
+    {
+        DialogueManager.ShowDialogueBalloon(
+            beaterDataComponent.beaterData.outroDialogueResource,
+            "start",
+            [this, new Godot.Collections.Dictionary { 
+                {"data", beaterDataComponent.beaterData },
+                {"endCondition", didWin}
 
+                }
+            ]
+        );
     }
 
     private void UpdateSpriteBillboard()

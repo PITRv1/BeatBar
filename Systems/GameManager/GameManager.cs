@@ -8,6 +8,8 @@ public partial class GameManager : Node
     
     [Export] public Control gui;
 
+    private static readonly PackedScene fightScene = GD.Load<PackedScene>("res://Systems/FightSystem/FightScene.tscn");
+
     public Control currentGuiScene = null;
 
 
@@ -26,21 +28,23 @@ public partial class GameManager : Node
     }
 
 
-    public async void ChangeGuiScene(string newScenePath)
+    public async void LoadFightScene(BaseNpc opponent)
     {
-        
-        
+                
         if (currentGuiScene != null)
         {
             currentGuiScene.QueueFree();
         }
 
-        var scene = GD.Load<PackedScene>(newScenePath);
-        Control newScene = scene.Instantiate<Control>();
+        FightManager newFightScene = fightScene.Instantiate<FightManager>();
+        
+        newFightScene.playerOne = Global.Instance.player;
+        newFightScene.playerTwo = opponent;
 
-        gui.AddChild(newScene);
-        currentGuiScene = newScene;
+        newFightScene.SetupFight();
 
+        gui.AddChild(newFightScene);
+        currentGuiScene = newFightScene;
 
     }
 
@@ -57,11 +61,15 @@ public partial class GameManager : Node
     private void _OnFightStarted(BaseNpc opponent)
     {
         fightEffectAniamtor.Play("fightEngage");
+        LoadFightScene(opponent);
     }
 
-    private void _OnFightEnded(Variant opponent)
+    private void _OnFightEnded(BaseNpc opponent, Variant winner)
     {
         fightEffectAniamtor.PlayBackwards("fightEngage");
+        ClearCurrentGuiScene();
+
+        opponent.FinishFight( winner.AsGodotObject() == opponent ); // if the winner and the opponent are the same the did win contion of the opponent is gonna be true.
     }
 
 

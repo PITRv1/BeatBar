@@ -49,7 +49,7 @@ fightPlayerPosition = NodePath("../FightBuddyFightPos")
 metadata/_edit_group_ = true
 
 [node name="FightBuddyFightPos" type="Marker3D" parent="NPCS"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1156092, 0, 0.88384414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7918655, -2.3841858e-07, 1.4834926)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1797559, 0.571738, -0.2889489)

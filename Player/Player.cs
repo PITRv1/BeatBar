@@ -20,6 +20,8 @@ public partial class Player : CharacterBody3D
     private Vector2 mouseInput;
     private States currentState = States.FREE;
 
+    private int money = 0;
+
     public enum States
     {
         FREE,
@@ -47,6 +49,17 @@ public partial class Player : CharacterBody3D
     }
 
 
+    public void GiveMoney(int amount)
+    {
+        money += amount;
+    }
+
+    public void TakeMoney(int amount)
+    {
+        money -= amount;
+    }
+
+
     private void _UpdateCameraRotation()
     {
         this.RotateY(-mouseInput.X * mouseSens);
@@ -67,9 +80,15 @@ public partial class Player : CharacterBody3D
         
         newVel.X = Mathf.Lerp(Velocity.X, wishDir.X * walkSpeed * (float)delta, (float)delta * movementSmoothingFactor);
         newVel.Z = Mathf.Lerp(Velocity.Z, wishDir.Z * walkSpeed * (float)delta, (float)delta * movementSmoothingFactor);
+
+        if (!IsOnFloor())
+        {
+            newVel.Y = Velocity.Y - 16.0f * (float)delta;
+            newVel.Y = Mathf.Max(newVel.Y, -60.0f);
+        }
         
         Velocity = newVel;
-         
+        
         MoveAndSlide();
     }
 

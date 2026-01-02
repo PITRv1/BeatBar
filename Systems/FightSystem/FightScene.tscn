@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq5msg8cvapkn"]
+
+[ext_resource type="Script" uid="uid://b5o4ecqcegu0o" path="res://Systems/FightSystem/FightManager.cs" id="1_fcsjg"]
+
+[node name="FightScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fcsjg")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 481.0
+offset_top = 321.0
+offset_right = 745.0
+offset_bottom = 695.0
+theme_override_font_sizes/font_size = 61
+text = "Player Win"
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1238.0
+offset_top = 319.0
+offset_right = 1502.0
+offset_bottom = 693.0
+theme_override_font_sizes/font_size = 61
+text = "Opponent Win"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_right = 183.0
+grow_vertical = 2
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="Button" to="." method="SetWinnerPlayer"]
+[connection signal="pressed" from="Button2" to="." method="SetWinnerOpponent"]

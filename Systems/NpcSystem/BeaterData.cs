@@ -15,5 +15,7 @@ public partial class BeaterData : Resource
     [Export] public float beatSpeed {get; set;}
 
     [Export] public Resource introDialogueResource;
+    [Export] public Resource outroDialogueResource;
+
 
 }

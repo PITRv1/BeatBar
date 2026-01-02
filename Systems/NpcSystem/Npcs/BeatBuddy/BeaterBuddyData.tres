@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="BeaterData" load_steps=3 format=3 uid="uid://b6j2iqv2gn0mi"]
+[gd_resource type="Resource" script_class="BeaterData" load_steps=4 format=3 uid="uid://b6j2iqv2gn0mi"]
 
 [ext_resource type="Resource" uid="uid://dbkmbeb6h1bi4" path="res://Systems/NpcSystem/Npcs/BeatBuddy/intro.dialogue" id="1_apna1"]
 [ext_resource type="Script" uid="uid://bvemus4i1r3ej" path="res://Systems/NpcSystem/BeaterData.cs" id="1_qnt5g"]
+[ext_resource type="Resource" uid="uid://b7x8itrmh2y07" path="res://Systems/NpcSystem/Npcs/BeatBuddy/outro.dialogue" id="2_g2umq"]
 
 [resource]
 script = ExtResource("1_qnt5g")
@@ -10,4 +11,5 @@ reward = 10
 damage = 5.0
 beatSpeed = 0.03
 introDialogueResource = ExtResource("1_apna1")
+outroDialogueResource = ExtResource("2_g2umq")
 metadata/_custom_type_script = "uid://bvemus4i1r3ej"
