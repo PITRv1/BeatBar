@@ -1,20 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkn7bmd732yw7"]
+[gd_scene load_steps=9 format=3 uid="uid://dkn7bmd732yw7"]
 
 [ext_resource type="Script" uid="uid://dv5in5k2iit3y" path="res://Player/Player.cs" id="1_l8h54"]
 [ext_resource type="PackedScene" uid="uid://4fcbyy6ppi4e" path="res://Systems/IntractionSystem/InteractionInitiator.tscn" id="2_q3lat"]
 [ext_resource type="PackedScene" uid="uid://dkaecaap2cggv" path="res://Systems/Components/BeaterDataComponent.tscn" id="3_tok1r"]
 [ext_resource type="Resource" uid="uid://dp43jtl7p2d4x" path="res://Player/PlayerBeaterData.tres" id="4_ddoul"]
+[ext_resource type="FontFile" uid="uid://d0480bk3i77km" path="res://Assets/Fonts/Montague.ttf" id="5_8g4oa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvfyp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_l8h54"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("playerCam", "interactionInitiator", "beaterDataComponent")]
+[sub_resource type="LabelSettings" id="LabelSettings_6ysni"]
+font = ExtResource("5_8g4oa")
+font_size = 51
+outline_size = 45
+outline_color = Color(0, 0.32, 0.047999952, 1)
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("playerCam", "interactionInitiator", "beaterDataComponent", "moneyDisplay")]
 script = ExtResource("1_l8h54")
 movementSmoothingFactor = 16.0
 playerCam = NodePath("Head/Camera3D")
 interactionInitiator = NodePath("Head/Camera3D/InteractionInitiator")
 beaterDataComponent = NodePath("BeaterDataComponent")
+moneyDisplay = NodePath("Label")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -34,3 +42,12 @@ target_position = Vector3(0, 0, -4)
 
 [node name="BeaterDataComponent" parent="." instance=ExtResource("3_tok1r")]
 beaterData = ExtResource("4_ddoul")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 31.0
+offset_top = 36.0
+offset_right = 647.0
+offset_bottom = 120.0
+text = "$ 123213"
+label_settings = SubResource("LabelSettings_6ysni")
+vertical_alignment = 1

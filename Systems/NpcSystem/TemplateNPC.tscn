@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1m3kyyh6ooia" path="res://Systems/NpcSystem/BaseNpc.cs" id="1_pgbsw"]
 [ext_resource type="PackedScene" uid="uid://bmkx5v22wa2w1" path="res://Systems/IntractionSystem/InteractionReceiver.tscn" id="2_b3j2t"]
-[ext_resource type="FontFile" uid="uid://ciq30a7ewl7n" path="res://Assets/Fonts/TEXAT BOLD PERSONAL USE___.otf" id="3_43j4k"]
+[ext_resource type="FontFile" uid="uid://d0480bk3i77km" path="res://Assets/Fonts/Montague.ttf" id="3_43j4k"]
 [ext_resource type="PackedScene" uid="uid://dkaecaap2cggv" path="res://Systems/Components/BeaterDataComponent.tscn" id="3_fx7ww"]
 
 [node name="TemplateNPC" type="Node3D" node_paths=PackedStringArray("beaterDataComponent", "nameLabel", "visualsContainer", "beaterSprite", "eyePosition")]
@@ -19,8 +19,7 @@ eyePosition = NodePath("EyePosition")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.039337, 0)
 billboard = 2
 double_sided = false
-modulate = Color(1, 0.26999998, 0.26999998, 1)
-outline_modulate = Color(0.15, 0, 0, 1)
+modulate = Color(1, 0.42000002, 0.42000002, 1)
 font = ExtResource("3_43j4k")
 font_size = 57
 outline_size = 52

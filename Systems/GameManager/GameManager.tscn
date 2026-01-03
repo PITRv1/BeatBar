@@ -1,7 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://xy8rwj04d4j8"]
+[gd_scene load_steps=10 format=3 uid="uid://xy8rwj04d4j8"]
 
 [ext_resource type="Script" uid="uid://cnv2h5c5f2h30" path="res://Systems/GameManager/GameManager.cs" id="1_jxv1j"]
 [ext_resource type="PackedScene" uid="uid://rdwbogng5ew7" path="res://Map/Map.tscn" id="2_73kla"]
+[ext_resource type="Theme" uid="uid://db6j0xu6r0484" path="res://Assets/GameTheme.tres" id="3_vgs26"]
+
+[sub_resource type="Animation" id="Animation_jxv1j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1092)]
+}
 
 [sub_resource type="Animation" id="Animation_ipkf0"]
 resource_name = "fightEngage"
@@ -31,53 +59,10 @@ tracks/1/keys = {
 "values": [Vector2(0, 1092), Vector2(0, 903)]
 }
 
-[sub_resource type="Animation" id="Animation_jxv1j"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -192)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 1092)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_73kla"]
 _data = {
 &"RESET": SubResource("Animation_jxv1j"),
 &"fightEngage": SubResource("Animation_ipkf0")
-}
-
-[sub_resource type="Animation" id="Animation_73kla"]
-resource_name = "fade"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GameLayer/Gui:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vgs26"]
@@ -85,7 +70,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GameLayer/Gui:modulate")
+tracks/0/path = NodePath("GUILayer/Gui:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -95,30 +80,39 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_73kla"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GUILayer/Gui:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o270j"]
 _data = {
 &"RESET": SubResource("Animation_vgs26"),
 &"fade": SubResource("Animation_73kla")
 }
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("fightEffectAniamtor", "gui")]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("fightEffectAniamtor", "transitionAnimator", "gui")]
 script = ExtResource("1_jxv1j")
 fightEffectAniamtor = NodePath("EffectsLayer/AnimationPlayer")
-gui = NodePath("GameLayer/Gui")
+transitionAnimator = NodePath("GUIFader")
+gui = NodePath("GUILayer/Gui")
 
 [node name="GameLayer" type="CanvasLayer" parent="."]
 
 [node name="MapHolder" type="Node" parent="GameLayer"]
 
 [node name="Map" parent="GameLayer/MapHolder" instance=ExtResource("2_73kla")]
-
-[node name="Gui" type="Control" parent="GameLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="EffectsLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -150,6 +144,18 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_73kla")
 }
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Gui" type="Control" parent="GUILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_vgs26")
 
 [node name="GUIFader" type="AnimationPlayer" parent="."]
 libraries = {

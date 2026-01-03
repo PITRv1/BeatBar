@@ -1,0 +1,31 @@
+~ start
+{{data.beaterName}}: Howdy partner! You wanna buy sommtin' from this bar of mine?
+- Yes
+	~ shop
+	{{data.beaterName}}: Alright well I can off ye some Muscle grower and some Heart pills I stole from some guy
+	- 20$ Heart Pills (Adds 5 points to your HP)
+		do UpgradePlayerHealth()
+		if canUpgradeHealth
+			{{data.beaterName}}: Thanks for the purchase!
+		else
+			{{data.beaterName}}: Unlucky maybe get more money and come back some other time.
+		=> shop
+		
+	- 25$ Muscle Grower (Adds .2 point multiplier to your punches)
+		do UpgradePlayerDamageMult()
+		if canUpgradeDamageMult
+			{{data.beaterName}}: Thanks for the purchase!
+		else
+			{{data.beaterName}}: Unlucky maybe get more money and come back some other time.
+		=> shop
+	- Leave
+		{{data.beaterName}}: I'll be hear when you need something!
+		do DisengagePlayer()
+- Leave
+	{{data.beaterName}}: I'll be hear when you need something!
+	do DisengagePlayer()
+- Fight
+	{{data.beaterName}}: What in tarnation? This won't end well for you budy.
+	do StartFight()
+
+=> END

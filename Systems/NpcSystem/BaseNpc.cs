@@ -5,6 +5,9 @@ using System.Diagnostics.CodeAnalysis;
 
 public partial class BaseNpc : Node3D
 {
+    [Signal] public delegate void BeatInputedEventHandler();
+    
+
     [Export] public Marker3D fightPlayerPosition {get;set;} // this is where the player will be moved when fighting the specific goon
 
     [Export] public BeaterDataComponent beaterDataComponent {get;set;}
@@ -16,23 +19,35 @@ public partial class BaseNpc : Node3D
     [Export] private float watchDistance {get; set;} = 5.0f;
 
     Tween tween;
+    public Timer fightCountdownTimer;
 
+    private float beatTimer;
+    private bool canBeat = false;
 
     public override void _Ready()
     {
         nameLabel.Text = beaterDataComponent.beaterData.beaterName;
+        
+        fightCountdownTimer = new Timer();
+        AddChild(fightCountdownTimer);
+
+        fightCountdownTimer.WaitTime = 3.0f;
+        fightCountdownTimer.OneShot = true;
+
+        fightCountdownTimer.Timeout += () => {canBeat = true;};
     }
 
 
     private void DisengagePlayer()
     {
         SignalBus.Instance.EmitSignal(SignalBus.SignalName.EngagementEnded, this);
-        Global.Instance.player.GiveMoney(beaterDataComponent.beaterData.reward);
     }
 
     private void EngagePlayer()
     {
         SignalBus.Instance.EmitSignal(SignalBus.SignalName.EngagementStarted, this);
+
+        GD.Print(this);
 
         DialogueManager.ShowDialogueBalloon(
             beaterDataComponent.beaterData.introDialogueResource,
@@ -42,7 +57,6 @@ public partial class BaseNpc : Node3D
                 }
             ]
         );
-
     }
 
 
@@ -59,10 +73,14 @@ public partial class BaseNpc : Node3D
         )
         .SetTrans(Tween.TransitionType.Cubic)
         .SetEase(Tween.EaseType.InOut);
+
+        fightCountdownTimer.Start();
     }
 
     public void FinishFight(bool didWin)
     {
+        canBeat = false;
+
         DialogueManager.ShowDialogueBalloon(
             beaterDataComponent.beaterData.outroDialogueResource,
             "start",
@@ -73,6 +91,16 @@ public partial class BaseNpc : Node3D
                 }
             ]
         );
+    }
+
+    public void Beat(double delta)
+    {
+        if (beatTimer <= 0.0f)
+        {
+            beatTimer = beaterDataComponent.beaterData.beatSpeed;
+            EmitSignal(SignalName.BeatInputed);
+        }
+        beatTimer -= (float)delta;
     }
 
     private void UpdateSpriteBillboard()
@@ -90,6 +118,12 @@ public partial class BaseNpc : Node3D
     public override void _PhysicsProcess(double delta)
     {
         UpdateSpriteBillboard();
+
+        if (canBeat)
+        {
+            
+            Beat(delta);
+        }
     }
 
 
@@ -97,5 +131,10 @@ public partial class BaseNpc : Node3D
     {
         if (tween != null) tween.Kill();   
         tween = CreateTween();
+    }
+
+    public void GivePlayerMoney()
+    {
+        Global.Instance.player.GiveMoney(beaterDataComponent.beaterData.reward);
     }
 }

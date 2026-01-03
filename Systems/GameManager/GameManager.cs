@@ -30,7 +30,8 @@ public partial class GameManager : Node
 
     public async void LoadFightScene(BaseNpc opponent)
     {
-                
+        transitionAnimator.Play("fade");
+
         if (currentGuiScene != null)
         {
             currentGuiScene.QueueFree();
@@ -45,6 +46,8 @@ public partial class GameManager : Node
 
         gui.AddChild(newFightScene);
         currentGuiScene = newFightScene;
+
+        transitionAnimator.PlayBackwards("fade");
 
     }
 

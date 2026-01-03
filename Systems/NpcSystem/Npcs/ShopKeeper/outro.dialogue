@@ -1,0 +1,11 @@
+~ start
+if endCondition
+	{{data.beaterName}}: I told you now back off before I beat it off to you again!
+else
+	{{data.beaterName}}: Sweet Lord! I never expect some to best me.
+	{{data.beaterName}}: Here are my life savings: {{data.reward}} Goon coins.
+	do GivePlayerMoney()
+	{{data.beaterName}}: Please do come back to spend them.
+	
+do DisengagePlayer()
+=> END

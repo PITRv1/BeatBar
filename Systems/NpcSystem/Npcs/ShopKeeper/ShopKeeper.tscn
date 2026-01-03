@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dm6nun4dnn63m"]
+
+[ext_resource type="Script" uid="uid://cf0c8o1fo3amc" path="res://Systems/NpcSystem/Npcs/ShopKeeper/ShopKeeper.cs" id="1_kmb06"]
+[ext_resource type="PackedScene" uid="uid://bmkx5v22wa2w1" path="res://Systems/IntractionSystem/InteractionReceiver.tscn" id="2_u6c63"]
+[ext_resource type="Resource" uid="uid://c81pvnl5dh8jw" path="res://Systems/NpcSystem/Npcs/ShopKeeper/ShopKeeperBeaterData.tres" id="3_lwkym"]
+[ext_resource type="PackedScene" uid="uid://dkaecaap2cggv" path="res://Systems/Components/BeaterDataComponent.tscn" id="3_mg83f"]
+[ext_resource type="FontFile" uid="uid://d0480bk3i77km" path="res://Assets/Fonts/Montague.ttf" id="3_nruha"]
+[ext_resource type="Texture2D" uid="uid://0e5annc6boi0" path="res://icon.svg" id="4_lwkym"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vj8fb"]
+size = Vector3(2.0058594, 2.3946533, 1.800293)
+
+[node name="ShopKeeper" type="Node3D" node_paths=PackedStringArray("beaterDataComponent", "nameLabel", "visualsContainer", "beaterSprite", "eyePosition")]
+script = ExtResource("1_kmb06")
+beaterDataComponent = NodePath("BeaterDataComponent")
+nameLabel = NodePath("Label3D")
+visualsContainer = NodePath("Visuals")
+beaterSprite = NodePath("Visuals/Sprite3D")
+eyePosition = NodePath("EyePosition")
+watchDistance = 7.0
+
+[node name="BeaterDataComponent" parent="." instance=ExtResource("3_mg83f")]
+beaterData = ExtResource("3_lwkym")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.275, 0)
+billboard = 2
+double_sided = false
+modulate = Color(1, 0.42000002, 0.42000002, 1)
+font = ExtResource("3_nruha")
+font_size = 57
+outline_size = 52
+uppercase = true
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3376237, 0)
+texture_filter = 0
+texture = ExtResource("4_lwkym")
+
+[node name="InteractionReciever" parent="." instance=ExtResource("2_u6c63")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionReciever"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1776733, -0.075927734)
+shape = SubResource("BoxShape3D_vj8fb")
+
+[node name="EyePosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.233587, 0)
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+aabb = AABB(-1.3124652, 0.038859367, -1.3316487, 2.6249304, 2.4908848, 2.6632974)
+
+[connection signal="InteractionReceived" from="InteractionReciever" to="." method="EngagePlayer"]

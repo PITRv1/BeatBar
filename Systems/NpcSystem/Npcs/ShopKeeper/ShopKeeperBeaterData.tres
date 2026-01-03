@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BeaterData" load_steps=4 format=3 uid="uid://c81pvnl5dh8jw"]
+
+[ext_resource type="Resource" uid="uid://g6selof0iif" path="res://Systems/NpcSystem/Npcs/ShopKeeper/intro.dialogue" id="1_8nuge"]
+[ext_resource type="Script" uid="uid://bvemus4i1r3ej" path="res://Systems/NpcSystem/BeaterData.cs" id="1_xh07s"]
+[ext_resource type="Resource" uid="uid://kb1bl6o3y6a4" path="res://Systems/NpcSystem/Npcs/ShopKeeper/outro.dialogue" id="2_arq4p"]
+
+[resource]
+script = ExtResource("1_xh07s")
+beaterName = "ShopKeeper"
+reward = 67420
+damageMultiplier = 2.0
+health = 200.0
+beatSpeed = 0.01
+introDialogueResource = ExtResource("1_8nuge")
+outroDialogueResource = ExtResource("2_arq4p")
+metadata/_custom_type_script = "uid://bvemus4i1r3ej"

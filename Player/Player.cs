@@ -4,6 +4,8 @@ using System.Runtime.CompilerServices;
 
 public partial class Player : CharacterBody3D
 {
+    [Signal] public delegate void BeatInputedEventHandler();
+
     [Export] private float walkSpeed = 300.0f;
     [Export] private float movementSmoothingFactor = 8.0f;
 
@@ -13,14 +15,14 @@ public partial class Player : CharacterBody3D
     [Export] private Camera3D playerCam;
     [Export] private InteractionInitiator interactionInitiator;
     [Export] public BeaterDataComponent beaterDataComponent;
-
+    [Export] public Label moneyDisplay;
 
     private BaseNpc currentOpponent;
 
     private Vector2 mouseInput;
     private States currentState = States.FREE;
 
-    private int money = 0;
+    public int money = 0;
 
     public enum States
     {
@@ -37,6 +39,7 @@ public partial class Player : CharacterBody3D
         SignalBus.Instance.EngagementStarted += _OnEngagementStarted;
         SignalBus.Instance.EngagementEnded += _OnEngagementEnded;
 
+        moneyDisplay.Text = "$  " + Convert.ToString(money);
     }
 
 
@@ -46,17 +49,25 @@ public partial class Player : CharacterBody3D
         {
             mouseInput = mouseMotion.Relative;
         }
+
+        if (@event.IsActionPressed("interact")){
+            EmitSignal(SignalName.BeatInputed);
+        }
     }
 
 
     public void GiveMoney(int amount)
     {
         money += amount;
+        moneyDisplay.Text = "$  " + Convert.ToString(money);
+
     }
 
     public void TakeMoney(int amount)
     {
         money -= amount;
+        moneyDisplay.Text = "$  " + Convert.ToString(money);
+
     }
 
 
