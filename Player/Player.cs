@@ -24,7 +24,11 @@ public partial class Player : CharacterBody3D
 
     public int money = 0;
 
-    private float headBobTime = 0f;
+    private float headbobTime = 0f;
+    private const float headbobFrequency =  1.5f;
+    private const float headbobMoveAmount = 0.08f;
+
+
 
     public enum States
     {
@@ -131,9 +135,20 @@ public partial class Player : CharacterBody3D
         mouseInput = Vector2.Zero;
     }
 
-    private void _BobCamera(double delta)
+    private void _UpdateCameraBob(double delta)
     {
+        headbobTime += (float)delta * Velocity.Length();
+    
+        Vector3 targetPosition = new Vector3(
+            Mathf.Cos(headbobTime * (headbobFrequency) * 0.5f) * headbobMoveAmount,
+            Mathf.Sin(headbobTime * (headbobFrequency)) * headbobMoveAmount,
+            0
+        );
         
+        playerCam.Transform = playerCam.Transform with 
+        { 
+            Origin = playerCam.Transform.Origin.Lerp(targetPosition, (float)delta * 10.0f) 
+        };
     }
 
     private void UpdateStateMachine(double delta)
@@ -143,6 +158,7 @@ public partial class Player : CharacterBody3D
             case States.FREE:
                 _UpdateCameraRotation();
                 _UpdateMovement(delta);
+                _UpdateCameraBob(delta);
 
             break;
             
