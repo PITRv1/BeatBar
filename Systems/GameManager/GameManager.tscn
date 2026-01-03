@@ -1,8 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://xy8rwj04d4j8"]
+[gd_scene load_steps=12 format=3 uid="uid://xy8rwj04d4j8"]
 
 [ext_resource type="Script" uid="uid://cnv2h5c5f2h30" path="res://Systems/GameManager/GameManager.cs" id="1_jxv1j"]
 [ext_resource type="PackedScene" uid="uid://rdwbogng5ew7" path="res://Map/Map.tscn" id="2_73kla"]
+[ext_resource type="Shader" uid="uid://c3j7d2edufdo5" path="res://Assets/effeckt.gdshader" id="3_o270j"]
 [ext_resource type="Theme" uid="uid://db6j0xu6r0484" path="res://Assets/GameTheme.tres" id="3_vgs26"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o270j"]
+shader = ExtResource("3_o270j")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 12
+shader_parameter/dither_size = 4
+shader_parameter/pixelSize = 4
 
 [sub_resource type="Animation" id="Animation_jxv1j"]
 length = 0.001
@@ -70,7 +79,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GUILayer/Gui:modulate")
+tracks/0/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/Gui:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -86,7 +95,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GUILayer/Gui:modulate")
+tracks/0/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/Gui:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -104,20 +113,33 @@ _data = {
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("fightEffectAniamtor", "transitionAnimator", "gui")]
 script = ExtResource("1_jxv1j")
-fightEffectAniamtor = NodePath("EffectsLayer/AnimationPlayer")
-transitionAnimator = NodePath("GUIFader")
-gui = NodePath("GUILayer/Gui")
+fightEffectAniamtor = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/EffectsLayer/AnimationPlayer")
+transitionAnimator = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/GUIFader")
+gui = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/Gui")
 
 [node name="GameLayer" type="CanvasLayer" parent="."]
 
 [node name="MapHolder" type="Node" parent="GameLayer"]
 
-[node name="Map" parent="GameLayer/MapHolder" instance=ExtResource("2_73kla")]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GameLayer/MapHolder"]
+material = SubResource("ShaderMaterial_o270j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="EffectsLayer" type="CanvasLayer" parent="."]
+[node name="SubViewport" type="SubViewport" parent="GameLayer/MapHolder/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Map" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport" instance=ExtResource("2_73kla")]
+
+[node name="EffectsLayer" type="CanvasLayer" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport"]
 layer = 2
 
-[node name="ColorRect" type="ColorRect" parent="EffectsLayer"]
+[node name="ColorRect" type="ColorRect" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/EffectsLayer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = -192.0
@@ -127,7 +149,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="EffectsLayer"]
+[node name="ColorRect2" type="ColorRect" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/EffectsLayer"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -140,24 +162,26 @@ size_flags_vertical = 0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EffectsLayer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/EffectsLayer"]
 libraries = {
 &"": SubResource("AnimationLibrary_73kla")
 }
 
-[node name="GUILayer" type="CanvasLayer" parent="."]
+[node name="GUILayer" type="CanvasLayer" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport"]
 layer = 3
 
-[node name="Gui" type="Control" parent="GUILayer"]
+[node name="Gui" type="Control" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_vgs26")
 
-[node name="GUIFader" type="AnimationPlayer" parent="."]
+[node name="GUIFader" type="AnimationPlayer" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer"]
+root_node = NodePath("../../../../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_o270j")
 }

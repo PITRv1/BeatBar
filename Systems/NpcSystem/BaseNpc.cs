@@ -47,8 +47,6 @@ public partial class BaseNpc : Node3D
     {
         SignalBus.Instance.EmitSignal(SignalBus.SignalName.EngagementStarted, this);
 
-        GD.Print(this);
-
         DialogueManager.ShowDialogueBalloon(
             beaterDataComponent.beaterData.introDialogueResource,
             "start",

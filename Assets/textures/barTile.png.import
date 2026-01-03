@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddg5cldfbgjr1"
-path.s3tc="res://.godot/imported/green ring goon.png-27cfb077f3d3bc5e48b937042989191a.s3tc.ctex"
+uid="uid://bvhk1s5bj375u"
+path.s3tc="res://.godot/imported/barTile.png-105b8543b0b669b0e01507c40c5e3d1a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/goons/green ring goon.png"
-dest_files=["res://.godot/imported/green ring goon.png-27cfb077f3d3bc5e48b937042989191a.s3tc.ctex"]
+source_file="res://Assets/textures/barTile.png"
+dest_files=["res://.godot/imported/barTile.png-105b8543b0b669b0e01507c40c5e3d1a.s3tc.ctex"]
 
 [params]
 

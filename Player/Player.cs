@@ -24,6 +24,8 @@ public partial class Player : CharacterBody3D
 
     public int money = 0;
 
+    private float headBobTime = 0f;
+
     public enum States
     {
         FREE,
@@ -127,6 +129,11 @@ public partial class Player : CharacterBody3D
 
 
         mouseInput = Vector2.Zero;
+    }
+
+    private void _BobCamera(double delta)
+    {
+        
     }
 
     private void UpdateStateMachine(double delta)

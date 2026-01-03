@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddg5cldfbgjr1"
-path.s3tc="res://.godot/imported/green ring goon.png-27cfb077f3d3bc5e48b937042989191a.s3tc.ctex"
+uid="uid://cgy1dv8uf7pif"
+path.s3tc="res://.godot/imported/floorBoardTile.png-110c6eec517e89a2c933a280b090fe86.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/goons/green ring goon.png"
-dest_files=["res://.godot/imported/green ring goon.png-27cfb077f3d3bc5e48b937042989191a.s3tc.ctex"]
+source_file="res://Assets/textures/floorBoardTile.png"
+dest_files=["res://.godot/imported/floorBoardTile.png-110c6eec517e89a2c933a280b090fe86.s3tc.ctex"]
 
 [params]
 

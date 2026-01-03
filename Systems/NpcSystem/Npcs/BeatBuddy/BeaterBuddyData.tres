@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_qnt5g")
-beaterName = "BeaterBuddy"
+beaterName = "Lorinc Levente"
 beatSpeed = 0.1
 introDialogueResource = ExtResource("1_apna1")
 outroDialogueResource = ExtResource("2_g2umq")
