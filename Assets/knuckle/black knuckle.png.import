@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://curqq5falphcg"
-path="res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"
+uid="uid://dgyggt6t588rf"
+path="res://.godot/imported/black knuckle.png-33776a2e771e1b644c494c86fb16d4c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/goons/bouncer.png"
-dest_files=["res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"]
+source_file="res://Assets/knuckle/black knuckle.png"
+dest_files=["res://.godot/imported/black knuckle.png-33776a2e771e1b644c494c86fb16d4c9.ctex"]
 
 [params]
 
