@@ -7,6 +7,13 @@ public partial class FightManager : Control
     [Export] public ProgressBar playerOneBeatMeater;
     [Export] public ProgressBar playerTwoBeatMeater;
 
+    [Export] public RichTextLabel playerOneMultiplierDisplay;
+    [Export] public Control playerOneMultiplierDisplayHolder;
+    [Export] public AnimationPlayer playerOneMultiplierDisplayAnimator;
+
+
+
+
     [Export] public AnimationPlayer countdownAnimator;
     [Export] public Button fightButton;
     
@@ -59,7 +66,17 @@ public partial class FightManager : Control
     {
         if (inputLock) return;
 
-        playerTwoHealth -= playerOne.beaterDataComponent.beaterData.damage + playerOne.beaterDataComponent.beaterData.damageMultiplier * 1.0f;
+        float randomDamageMultiplier = 1.0f;
+        if (GD.Randf() < 0.1f)
+        {
+            float randVal = GD.Randf();
+            randomDamageMultiplier = 1.0f + randVal;
+            ShakeMultiplierDisplay(playerOneMultiplierDisplayHolder, playerOneMultiplierDisplay, randomDamageMultiplier);
+        }
+
+        playerTwoHealth -= playerOne.beaterDataComponent.beaterData.damage * randomDamageMultiplier + playerOne.beaterDataComponent.beaterData.damageMultiplier * 1.0f;
+
+        playerTwo.PlayGoonDamageSound();
 
         if (playerTwoHealth <= 0.0f)
         {
@@ -98,12 +115,23 @@ public partial class FightManager : Control
         playerOneBeatMeater.Value = playerOneHealth;
     }
 
-    public void EndFightSquence()
+    public async void EndFightSquence()
     {
+        inputLock = true;
         playerOne.BeatInputed -= _OnPlayerOneBeat;
         playerTwo.BeatInputed -= _OnPlayerTwoBeat;
 
         playerTwo.fightCountdownTimer.Timeout -= StartFightSquence;
+        if (winner.AsGodotObject() == playerTwo)
+        {
+            playerTwo.PlayWinAnim();
+        }
+        else
+        {
+            playerTwo.PlayLoseAnim();
+        }
+
+        await ToSignal(playerTwo.fightAnimator, AnimationPlayer.SignalName.AnimationFinished);
 
         SignalBus.Instance.EmitSignal(SignalBus.SignalName.FightEnded, playerTwo, winner);
     }
@@ -112,5 +140,12 @@ public partial class FightManager : Control
     {
         if (tween != null) tween.Kill();   
         tween = CreateTween();
+    }
+
+    private void ShakeMultiplierDisplay(Control labelHolder, RichTextLabel richTextLabel, float displayValue)
+    {
+        richTextLabel.Text = "[rainbow]" + Convert.ToString(MathF.Round(displayValue, 1)) + "x";
+
+        playerOneMultiplierDisplayAnimator.Play("dispMult");
     }
 }

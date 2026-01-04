@@ -16,6 +16,7 @@ public partial class Player : CharacterBody3D
     [Export] private InteractionInitiator interactionInitiator;
     [Export] public BeaterDataComponent beaterDataComponent;
     [Export] public Label moneyDisplay;
+    [Export] public AudioStreamPlayer walkAudioPlayer; 
 
     private BaseNpc currentOpponent;
 
@@ -149,6 +150,14 @@ public partial class Player : CharacterBody3D
         { 
             Origin = playerCam.Transform.Origin.Lerp(targetPosition, (float)delta * 10.0f) 
         };
+
+
+
+        // if (playerCam.Position.Y < -0.06 && walkAudioPlayer.Playing == false )
+        // {
+            
+        //     walkAudioPlayer.Play();
+        // }
     }
 
     private void UpdateStateMachine(double delta)

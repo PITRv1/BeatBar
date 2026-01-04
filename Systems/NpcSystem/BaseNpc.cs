@@ -15,6 +15,10 @@ public partial class BaseNpc : Node3D
     [Export] public Node3D visualsContainer {get; set;}
     [Export] public Sprite3D beaterSprite {get; set;}
     [Export] public Marker3D eyePosition {get; set;}
+    [Export] public AnimationPlayer fightAnimator {get; set;}
+    [Export] public AudioStreamPlayer audioPlayer {get; set;}
+
+
 
     [Export] private float watchDistance {get; set;} = 5.0f;
 
@@ -35,6 +39,8 @@ public partial class BaseNpc : Node3D
         fightCountdownTimer.OneShot = true;
 
         fightCountdownTimer.Timeout += () => {canBeat = true;};
+
+        audioPlayer.ProcessMode = ProcessModeEnum.Inherit;
     }
 
 
@@ -95,7 +101,8 @@ public partial class BaseNpc : Node3D
     {
         if (beatTimer <= 0.0f)
         {
-            beatTimer = beaterDataComponent.beaterData.beatSpeed;
+            beatTimer = beaterDataComponent.beaterData.beatSpeed + GD.Randf() * 0.25f;
+
             EmitSignal(SignalName.BeatInputed);
         }
         beatTimer -= (float)delta;
@@ -135,4 +142,20 @@ public partial class BaseNpc : Node3D
     {
         Global.Instance.player.GiveMoney(beaterDataComponent.beaterData.reward);
     }
+
+    public void PlayLoseAnim()
+    {
+        fightAnimator.Play("loseAnim");
+    }
+
+    public void PlayWinAnim()
+    {
+        fightAnimator.Play("winAnim");
+    }
+
+    public void PlayGoonDamageSound()
+    {
+        audioPlayer.Play();
+    }
+
 }

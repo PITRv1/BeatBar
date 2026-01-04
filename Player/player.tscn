@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkn7bmd732yw7"]
+[gd_scene load_steps=11 format=3 uid="uid://dkn7bmd732yw7"]
 
 [ext_resource type="Script" uid="uid://dv5in5k2iit3y" path="res://Player/Player.cs" id="1_l8h54"]
 [ext_resource type="PackedScene" uid="uid://4fcbyy6ppi4e" path="res://Systems/IntractionSystem/InteractionInitiator.tscn" id="2_q3lat"]
 [ext_resource type="PackedScene" uid="uid://dkaecaap2cggv" path="res://Systems/Components/BeaterDataComponent.tscn" id="3_tok1r"]
 [ext_resource type="Resource" uid="uid://dp43jtl7p2d4x" path="res://Player/PlayerBeaterData.tres" id="4_ddoul"]
 [ext_resource type="FontFile" uid="uid://d0480bk3i77km" path="res://Assets/Fonts/Montague.ttf" id="5_8g4oa"]
+[ext_resource type="AudioStream" uid="uid://b7poqyx0gssut" path="res://Assets/Audio/walk.wav" id="6_6ysni"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvfyp"]
 
@@ -16,13 +17,19 @@ font_size = 51
 outline_size = 45
 outline_color = Color(0, 0.32, 0.047999952, 1)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("playerCam", "interactionInitiator", "beaterDataComponent", "moneyDisplay")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6ysni"]
+random_pitch = 1.62
+streams_count = 1
+stream_0/stream = ExtResource("6_6ysni")
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("playerCam", "interactionInitiator", "beaterDataComponent", "moneyDisplay", "walkAudioPlayer")]
 script = ExtResource("1_l8h54")
 movementSmoothingFactor = 16.0
 playerCam = NodePath("Head/Camera3D")
 interactionInitiator = NodePath("Head/Camera3D/InteractionInitiator")
 beaterDataComponent = NodePath("BeaterDataComponent")
 moneyDisplay = NodePath("Label")
+walkAudioPlayer = NodePath("AudioStreamPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -37,6 +44,7 @@ mesh = SubResource("CapsuleMesh_l8h54")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5248711, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+current = true
 
 [node name="InteractionInitiator" parent="Head/Camera3D" instance=ExtResource("2_q3lat")]
 target_position = Vector3(0, 0, -4)
@@ -52,3 +60,6 @@ offset_bottom = 120.0
 text = "$ 123213"
 label_settings = SubResource("LabelSettings_6ysni")
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_6ysni")
