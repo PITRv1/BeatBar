@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bijg67xwxunu2"
-path="res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"
+uid="uid://23n1g2bvb2pk"
+path.s3tc="res://.godot/imported/blue smoke goon 2.png-f646b0cf11f09ff8b897d6af22380721.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/goons/bouncer.png"
-dest_files=["res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"]
+source_file="res://Assets/goons/blue goons/blue smoke goon 2.png"
+dest_files=["res://.godot/imported/blue smoke goon 2.png-f646b0cf11f09ff8b897d6af22380721.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

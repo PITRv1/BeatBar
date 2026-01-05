@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bijg67xwxunu2"
-path="res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"
+uid="uid://ui0ufq6371ap"
+path="res://.godot/imported/blue normal goon 1.png-f1e502896cc16e868b664f27cee7d481.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/goons/bouncer.png"
-dest_files=["res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"]
+source_file="res://Assets/goons/blue goons/blue normal goon 1.png"
+dest_files=["res://.godot/imported/blue normal goon 1.png-f1e502896cc16e868b664f27cee7d481.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

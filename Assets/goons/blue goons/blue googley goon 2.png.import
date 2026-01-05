@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bijg67xwxunu2"
-path="res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"
+uid="uid://y0ea55klq0pg"
+path.bptc="res://.godot/imported/blue googley goon 2.png-758fb8b3894676e649c6a95355c30af0.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Assets/goons/bouncer.png"
-dest_files=["res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"]
+source_file="res://Assets/goons/blue goons/blue googley goon 2.png"
+dest_files=["res://.godot/imported/blue googley goon 2.png-758fb8b3894676e649c6a95355c30af0.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

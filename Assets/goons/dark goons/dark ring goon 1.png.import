@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bijg67xwxunu2"
-path="res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"
+uid="uid://1mj2fgr2hh66"
+path="res://.godot/imported/dark ring goon 1.png-f8276924299d5e743f9163db9ac14b2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/goons/bouncer.png"
-dest_files=["res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"]
+source_file="res://Assets/goons/dark goons/dark ring goon 1.png"
+dest_files=["res://.godot/imported/dark ring goon 1.png-f8276924299d5e743f9163db9ac14b2f.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

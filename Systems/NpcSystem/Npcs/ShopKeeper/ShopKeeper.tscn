@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://c81pvnl5dh8jw" path="res://Systems/NpcSystem/Npcs/ShopKeeper/ShopKeeperBeaterData.tres" id="3_lwkym"]
 [ext_resource type="PackedScene" uid="uid://dkaecaap2cggv" path="res://Systems/Components/BeaterDataComponent.tscn" id="3_mg83f"]
 [ext_resource type="FontFile" uid="uid://d0480bk3i77km" path="res://Assets/Fonts/Montague.ttf" id="3_nruha"]
-[ext_resource type="Texture2D" uid="uid://0e5annc6boi0" path="res://icon.svg" id="4_lwkym"]
+[ext_resource type="Texture2D" uid="uid://ci64xni035883" path="res://Assets/goons/bartender.png" id="5_nruha"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vj8fb"]
 size = Vector3(2.0058594, 2.3946533, 1.800293)
@@ -169,8 +169,9 @@ uppercase = true
 
 [node name="Sprite3D" type="Sprite3D" parent="Visuals"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3376237, 0)
+pixel_size = 0.07
 texture_filter = 0
-texture = ExtResource("4_lwkym")
+texture = ExtResource("5_nruha")
 
 [node name="InteractionReciever" parent="." instance=ExtResource("2_u6c63")]
 
