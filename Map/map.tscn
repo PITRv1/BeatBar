@@ -1,7 +1,7 @@
 [gd_scene load_steps=394 format=4 uid="uid://rdwbogng5ew7"]
 
 [ext_resource type="Texture2D" uid="uid://dhnhceiooxooc" path="res://Assets/Images/skyBeater.hdr" id="1_6od3y"]
-[ext_resource type="PackedScene" uid="uid://dkn7bmd732yw7" path="res://Player/Player.tscn" id="1_7s3fs"]
+[ext_resource type="PackedScene" uid="uid://dkn7bmd732yw7" path="res://Player/player.tscn" id="1_7s3fs"]
 [ext_resource type="PackedScene" uid="uid://dbhoqiqg8q4iv" path="res://Systems/NpcSystem/Npcs/BeatBuddy/BeatingBuddy.tscn" id="2_2623n"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_wgwpm"]
 [ext_resource type="PackedScene" uid="uid://dm6nun4dnn63m" path="res://Systems/NpcSystem/Npcs/ShopKeeper/ShopKeeper.tscn" id="3_ypc4v"]

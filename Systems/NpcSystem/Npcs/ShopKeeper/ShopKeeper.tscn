@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://c81pvnl5dh8jw" path="res://Systems/NpcSystem/Npcs/ShopKeeper/ShopKeeperBeaterData.tres" id="3_lwkym"]
 [ext_resource type="PackedScene" uid="uid://dkaecaap2cggv" path="res://Systems/Components/BeaterDataComponent.tscn" id="3_mg83f"]
 [ext_resource type="FontFile" uid="uid://d0480bk3i77km" path="res://Assets/Fonts/Montague.ttf" id="3_nruha"]
-[ext_resource type="Texture2D" uid="uid://ci64xni035883" path="res://Assets/goons/bartender.png" id="5_nruha"]
+[ext_resource type="Texture2D" uid="uid://diw20i0ds00pp" path="res://Assets/goons/bartender/bartender 1.png" id="5_nruha"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vj8fb"]
 size = Vector3(2.0058594, 2.3946533, 1.800293)
