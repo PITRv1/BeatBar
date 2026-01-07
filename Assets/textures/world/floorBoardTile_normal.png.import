@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j0vshh7vivsx"
-path.s3tc="res://.godot/imported/ornateCeiling_normal.png-2f357215a548878f18db16e4f4aa8e23.s3tc.ctex"
+uid="uid://xj0hcej2ikwf"
+path.s3tc="res://.godot/imported/floorBoardTile_normal.png-8646a88a018220fa30eda227521ad748.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/ornateCeiling_normal.png"
-dest_files=["res://.godot/imported/ornateCeiling_normal.png-2f357215a548878f18db16e4f4aa8e23.s3tc.ctex"]
+source_file="res://Assets/textures/world/floorBoardTile_normal.png"
+dest_files=["res://.godot/imported/floorBoardTile_normal.png-8646a88a018220fa30eda227521ad748.s3tc.ctex"]
 
 [params]
 
@@ -27,7 +27,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Assets/textures/ornateCeiling_normal.png"
+roughness/src_normal="res://Assets/textures/floorBoardTile_normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

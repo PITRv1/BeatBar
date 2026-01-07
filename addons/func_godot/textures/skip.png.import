@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhmu0toe1itnr"
-path="res://.godot/imported/clip.png-d6aec42ee8177d94dc90642df6196655.ctex"
+uid="uid://bk5oo263y3u7w"
+path="res://.godot/imported/skip.png-b8ce29eeb9f4be76c300a81fd41322fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/clip.png"
-dest_files=["res://.godot/imported/clip.png-d6aec42ee8177d94dc90642df6196655.ctex"]
+source_file="res://addons/func_godot/textures/skip.png"
+dest_files=["res://.godot/imported/skip.png-b8ce29eeb9f4be76c300a81fd41322fa.ctex"]
 
 [params]
 

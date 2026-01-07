@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhwkfs436dldw"
-path.s3tc="res://.godot/imported/wallPaperTile.png-d1a9704e5b2d4ab4544a6a11c870df06.s3tc.ctex"
+uid="uid://ctrnl57mqb8x0"
+path.s3tc="res://.godot/imported/CrossTile.png-8ea7aba8bce024d3b5e5459138a04cde.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/wallPaperTile.png"
-dest_files=["res://.godot/imported/wallPaperTile.png-d1a9704e5b2d4ab4544a6a11c870df06.s3tc.ctex"]
+source_file="res://Assets/textures/world/CrossTile.png"
+dest_files=["res://.godot/imported/CrossTile.png-8ea7aba8bce024d3b5e5459138a04cde.s3tc.ctex"]
 
 [params]
 

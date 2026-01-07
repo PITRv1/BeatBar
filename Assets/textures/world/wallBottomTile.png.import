@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://co4sa67xh7e7m"
-path.s3tc="res://.godot/imported/wallOrnate.png-7ffe6353f9b1ca257367fae149ce4352.s3tc.ctex"
+uid="uid://caaj52gjsl500"
+path.s3tc="res://.godot/imported/wallBottomTile.png-40f7aaded515336f666052a979016d1a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/wallOrnate.png"
-dest_files=["res://.godot/imported/wallOrnate.png-7ffe6353f9b1ca257367fae149ce4352.s3tc.ctex"]
+source_file="res://Assets/textures/world/wallBottomTile.png"
+dest_files=["res://.godot/imported/wallBottomTile.png-40f7aaded515336f666052a979016d1a.s3tc.ctex"]
 
 [params]
 
