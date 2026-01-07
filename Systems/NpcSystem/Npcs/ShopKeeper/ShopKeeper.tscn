@@ -169,11 +169,13 @@ uppercase = true
 
 [node name="Sprite3D" type="Sprite3D" parent="Visuals"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3376237, 0)
+custom_aabb = AABB(-0.685, -1.195, 0.425, 1.22, 2.065, -1.18)
 pixel_size = 0.07
 texture_filter = 0
 texture = ExtResource("5_nruha")
 
-[node name="InteractionReciever" parent="." instance=ExtResource("2_u6c63")]
+[node name="InteractionReciever" parent="." node_paths=PackedStringArray("geometryInstance") instance=ExtResource("2_u6c63")]
+geometryInstance = NodePath("../Visuals/Sprite3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionReciever"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1776733, -0.075927734)

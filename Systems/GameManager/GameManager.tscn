@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://xy8rwj04d4j8"]
 
 [ext_resource type="Script" uid="uid://cnv2h5c5f2h30" path="res://Systems/GameManager/GameManager.cs" id="1_jxv1j"]
-[ext_resource type="PackedScene" uid="uid://rdwbogng5ew7" path="res://Map/Map.tscn" id="2_73kla"]
+[ext_resource type="PackedScene" uid="uid://rdwbogng5ew7" path="res://Map/map.tscn" id="2_73kla"]
 [ext_resource type="Shader" uid="uid://c3j7d2edufdo5" path="res://Assets/effeckt.gdshader" id="3_o270j"]
 [ext_resource type="Theme" uid="uid://db6j0xu6r0484" path="res://Assets/GameTheme.tres" id="3_vgs26"]
 
@@ -128,6 +128,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GameLayer/MapHolder/SubViewportContainer"]
 handle_input_locally = false

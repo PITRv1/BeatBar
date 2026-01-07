@@ -17,8 +17,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2749133, 0)
 
 [node name="Sprite3D" parent="Visuals" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1080617, 0)
+custom_aabb = AABB(-0.6, -1.03, -0.525, 1.18, 2.09, 0.93)
 pixel_size = 0.07
 texture = ExtResource("3_i2lhe")
+
+[node name="InteractionReciever" parent="." index="3" node_paths=PackedStringArray("geometryInstance")]
+geometryInstance = NodePath("../Visuals/Sprite3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionReciever" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

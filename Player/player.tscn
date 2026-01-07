@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkn7bmd732yw7"]
+[gd_scene load_steps=14 format=3 uid="uid://dkn7bmd732yw7"]
 
 [ext_resource type="Script" uid="uid://dv5in5k2iit3y" path="res://Player/Player.cs" id="1_l8h54"]
 [ext_resource type="PackedScene" uid="uid://4fcbyy6ppi4e" path="res://Systems/IntractionSystem/InteractionInitiator.tscn" id="2_q3lat"]
@@ -6,6 +6,9 @@
 [ext_resource type="Resource" uid="uid://dp43jtl7p2d4x" path="res://Player/PlayerBeaterData.tres" id="4_ddoul"]
 [ext_resource type="FontFile" uid="uid://d0480bk3i77km" path="res://Assets/Fonts/Montague.ttf" id="5_8g4oa"]
 [ext_resource type="AudioStream" uid="uid://b7poqyx0gssut" path="res://Assets/Audio/walk.wav" id="6_6ysni"]
+[ext_resource type="Script" uid="uid://brje2xv3kvoqp" path="res://Player/InteractHightlight.cs" id="7_vtle1"]
+[ext_resource type="Texture2D" uid="uid://c7vi5hymyjh6l" path="res://Assets/Images/leftInteractHover.png" id="8_00tjw"]
+[ext_resource type="Texture2D" uid="uid://dpfvboyes4lpd" path="res://Assets/Images/rightInteractHover.png" id="9_x3vf3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvfyp"]
 
@@ -48,6 +51,8 @@ current = true
 
 [node name="InteractionInitiator" parent="Head/Camera3D" instance=ExtResource("2_q3lat")]
 target_position = Vector3(0, 0, -4)
+handReach = 3.5
+continousCheck = true
 
 [node name="BeaterDataComponent" parent="." instance=ExtResource("3_tok1r")]
 beaterData = ExtResource("4_ddoul")
@@ -63,3 +68,42 @@ vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_6ysni")
+
+[node name="InteractHightlight" type="Control" parent="." node_paths=PackedStringArray("itemHighlighterLeft", "itemHighlighterRight", "interactionInitiator")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_vtle1")
+itemHighlighterLeft = NodePath("Left")
+itemHighlighterRight = NodePath("Right")
+interactionInitiator = NodePath("../Head/Camera3D/InteractionInitiator")
+
+[node name="Left" type="Control" parent="InteractHightlight"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+
+[node name="TextureRect" type="TextureRect" parent="InteractHightlight/Left"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_00tjw")
+
+[node name="Right" type="Control" parent="InteractHightlight"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+
+[node name="TextureRect" type="TextureRect" parent="InteractHightlight/Right"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_x3vf3")

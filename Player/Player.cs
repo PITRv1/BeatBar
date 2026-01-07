@@ -12,8 +12,8 @@ public partial class Player : CharacterBody3D
     [Export] private float mouseSens = 0.003f;
 
     [ExportGroup("PlayerParts")]
-    [Export] private Camera3D playerCam;
-    [Export] private InteractionInitiator interactionInitiator;
+    [Export] public Camera3D playerCam;
+    [Export] public InteractionInitiator interactionInitiator;
     [Export] public BeaterDataComponent beaterDataComponent;
     [Export] public Label moneyDisplay;
     [Export] public AudioStreamPlayer walkAudioPlayer; 
