@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bri58tncnedsv"]
+
+[ext_resource type="Texture2D" uid="uid://dladigyqcbejx" path="res://Assets/textures/world/dirtDarkTile.png" id="1_wquys"]
+[ext_resource type="Texture2D" uid="uid://cdyvl5q75wdqe" path="res://Assets/textures/world/dirtTile_normal.png" id="2_6all8"]
+
+[resource]
+albedo_texture = ExtResource("1_wquys")
+metallic_specular = 0.0
+normal_enabled = true
+normal_scale = 0.34
+normal_texture = ExtResource("2_6all8")
+texture_filter = 2

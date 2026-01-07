@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhmu0toe1itnr"
-path.s3tc="res://.godot/imported/clip.png-7d748bc2a83b2e64d10e6d59c160f43a.s3tc.ctex"
+uid="uid://dladigyqcbejx"
+path.s3tc="res://.godot/imported/dirtDarkTile.png-9f31e2fd5346636043a296515b06cb3d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/special/clip.png"
-dest_files=["res://.godot/imported/clip.png-7d748bc2a83b2e64d10e6d59c160f43a.s3tc.ctex"]
+source_file="res://Assets/textures/world/dirtDarkTile.png"
+dest_files=["res://.godot/imported/dirtDarkTile.png-9f31e2fd5346636043a296515b06cb3d.s3tc.ctex"]
 
 [params]
 

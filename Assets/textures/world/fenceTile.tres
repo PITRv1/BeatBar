@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bscqttpl8p0j0"]
+
+[ext_resource type="Texture2D" uid="uid://7gv2mtbiy42n" path="res://Assets/textures/world/fenceTile.png" id="1_e4b2l"]
+
+[resource]
+transparency = 1
+shading_mode = 2
+albedo_texture = ExtResource("1_e4b2l")
+metallic_specular = 0.0
+texture_filter = 2
