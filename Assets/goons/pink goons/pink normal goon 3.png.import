@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bijg67xwxunu2"
-path="res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"
+uid="uid://criut3r72a3pm"
+path="res://.godot/imported/pink normal goon 3.png-6f28397b96b7bdb72bb39dca82679b26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/goons/bouncer.png"
-dest_files=["res://.godot/imported/bouncer.png-2bd22c96d13259cd7dfef2fcac248a0b.ctex"]
+source_file="res://Assets/goons/pink goons/pink normal goon 3.png"
+dest_files=["res://.godot/imported/pink normal goon 3.png-6f28397b96b7bdb72bb39dca82679b26.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
