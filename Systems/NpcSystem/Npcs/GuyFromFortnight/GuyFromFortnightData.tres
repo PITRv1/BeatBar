@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BeaterData" load_steps=4 format=3 uid="uid://dhxu1wdf7nqgu"]
+
+[ext_resource type="Resource" uid="uid://cbwqmwwjkf65f" path="res://Systems/NpcSystem/Npcs/GuyFromFortnight/intro.dialogue" id="1_emlyy"]
+[ext_resource type="Script" uid="uid://bvemus4i1r3ej" path="res://Systems/NpcSystem/BeaterData.cs" id="1_qyc1m"]
+[ext_resource type="Resource" uid="uid://cbestyc3dfue0" path="res://Systems/NpcSystem/Npcs/GuyFromFortnight/outro.dialogue" id="2_dsrux"]
+
+[resource]
+script = ExtResource("1_qyc1m")
+beaterName = "Guy From Fortnight"
+reward = 9
+damageMultiplier = 0.1
+health = 102.0
+introDialogueResource = ExtResource("1_emlyy")
+outroDialogueResource = ExtResource("2_dsrux")
+metadata/_custom_type_script = "uid://bvemus4i1r3ej"

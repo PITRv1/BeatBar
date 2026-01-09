@@ -16,7 +16,7 @@ public partial class BaseNpc : Node3D
     [Export] public Sprite3D beaterSprite {get; set;}
     [Export] public Marker3D eyePosition {get; set;}
     [Export] public AnimationPlayer fightAnimator {get; set;}
-    [Export] public AudioStreamPlayer audioPlayer {get; set;}
+    [Export] public AudioStreamPlayer3D audioPlayer {get; set;}
 
 
 

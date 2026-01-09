@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cbestyc3dfue0"
+path="res://.godot/imported/outro.dialogue-8dac41ce6e218993453c5a2dbfb5a007.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/GuyFromFortnight/outro.dialogue"
+dest_files=["res://.godot/imported/outro.dialogue-8dac41ce6e218993453c5a2dbfb5a007.tres"]
+
+[params]
+
+defaults=true

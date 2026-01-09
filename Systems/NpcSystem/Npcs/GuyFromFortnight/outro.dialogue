@@ -1,0 +1,9 @@
+~ start
+if endCondition
+	{{data.beaterName}}: He he he haw!
+else
+	{{data.beaterName}}: o concludes the life and time of FortnightPrime!
+	{{data.beaterName}}: Now goon of with your coins: {{data.reward}}.
+	do GivePlayerMoney()
+do DisengagePlayer()
+=> END

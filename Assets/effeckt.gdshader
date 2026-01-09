@@ -51,16 +51,18 @@ void fragment() {
 	// First apply pixelation
 	ivec2 size = textureSize(TEXTURE, 0);
 	
-	int xRes = size.x;
-	int yRes = size.y;
+	//int xRes = size.x;
+	//int yRes = size.y;
+	//
+	//float xFactor = float(xRes) / float(pixelSize);
+	//float yFactor = float(yRes) / float(pixelSize);
+	//
+	//float grid_uv_x = round(UV.x * xFactor) / xFactor;
+	//float grid_uv_y = round(UV.y * yFactor) / yFactor;
+	//
+	//vec4 raw = texture(TEXTURE, vec2(grid_uv_x, grid_uv_y));
+	vec4 raw = texture(TEXTURE, UV);
 	
-	float xFactor = float(xRes) / float(pixelSize);
-	float yFactor = float(yRes) / float(pixelSize);
-	
-	float grid_uv_x = round(UV.x * xFactor) / xFactor;
-	float grid_uv_y = round(UV.y * yFactor) / yFactor;
-	
-	vec4 raw = texture(TEXTURE, vec2(grid_uv_x, grid_uv_y));
 	
 	// Then apply color reduction with dithering
 	ivec2 uv = ivec2(FRAGCOORD.xy / float(dither_size));

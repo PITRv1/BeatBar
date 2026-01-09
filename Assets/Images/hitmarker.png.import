@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck8t8lgojjm78"
-path="res://.godot/imported/BeaterIcon.png-d79235da69a4e5aca94b0771ac4b82d7.ctex"
+uid="uid://cox7ykto8nvbl"
+path="res://.godot/imported/hitmarker.png-d1d2059a6a5b305aacaf3f9ce6f0c132.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Systems/NpcSystem/Npcs/BeaterIcon.png"
-dest_files=["res://.godot/imported/BeaterIcon.png-d79235da69a4e5aca94b0771ac4b82d7.ctex"]
+source_file="res://Assets/Images/hitmarker.png"
+dest_files=["res://.godot/imported/hitmarker.png-d1d2059a6a5b305aacaf3f9ce6f0c132.ctex"]
 
 [params]
 

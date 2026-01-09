@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://b6j2iqv2gn0mi" path="res://Systems/NpcSystem/Npcs/BeatBuddy/BeaterBuddyData.tres" id="2_2txop"]
 [ext_resource type="Texture2D" uid="uid://veb86p0jxl0v" path="res://Assets/goons/dark goons/dark normal goon 1.png" id="3_i2lhe"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2txop"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2lhe"]
 size = Vector3(1, 2.097412, 1)
 
 [node name="BeatingBuddy" instance=ExtResource("1_pcvr6")]
@@ -16,17 +16,12 @@ beaterData = ExtResource("2_2txop")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2749133, 0)
 
 [node name="Sprite3D" parent="Visuals" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1080617, 0)
 custom_aabb = AABB(-0.6, -1.03, -0.525, 1.18, 2.09, 0.93)
-pixel_size = 0.07
 texture = ExtResource("3_i2lhe")
 
-[node name="InteractionReciever" parent="." index="3" node_paths=PackedStringArray("geometryInstance")]
-geometryInstance = NodePath("../Visuals/Sprite3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionReciever" index="0"]
+[node name="CollisionShape3D" parent="InteractionReciever" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_2txop")
+shape = SubResource("BoxShape3D_i2lhe")
 
 [node name="EyePosition" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.509825, 0)

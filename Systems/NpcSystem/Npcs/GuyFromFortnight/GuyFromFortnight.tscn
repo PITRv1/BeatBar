@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://m5nws3r10p0d"]
+
+[ext_resource type="PackedScene" uid="uid://baakfm3ug6mld" path="res://Systems/NpcSystem/TemplateNPC.tscn" id="1_rgh4e"]
+[ext_resource type="Texture2D" uid="uid://buvpovjjy5y65" path="res://Assets/goons/pink goons/pink googley goon 1.png" id="2_3j7o1"]
+[ext_resource type="Resource" uid="uid://dhxu1wdf7nqgu" path="res://Systems/NpcSystem/Npcs/GuyFromFortnight/GuyFromFortnightData.tres" id="2_kl02r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kl02r"]
+size = Vector3(1.8076172, 2.4865112, 1.6992188)
+
+[node name="GuyFromFortnight" instance=ExtResource("1_rgh4e")]
+
+[node name="BeaterDataComponent" parent="." index="0"]
+beaterData = ExtResource("2_kl02r")
+
+[node name="Sprite3D" parent="Visuals" index="0"]
+texture = ExtResource("2_3j7o1")
+
+[node name="CollisionShape3D" parent="InteractionReciever" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2347677, 0)
+shape = SubResource("BoxShape3D_kl02r")

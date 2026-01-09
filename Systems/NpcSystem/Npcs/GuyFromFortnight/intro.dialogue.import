@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cbwqmwwjkf65f"
+path="res://.godot/imported/intro.dialogue-3a2dddfc27baa81e00b04a7366f4283e.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/GuyFromFortnight/intro.dialogue"
+dest_files=["res://.godot/imported/intro.dialogue-3a2dddfc27baa81e00b04a7366f4283e.tres"]
+
+[params]
+
+defaults=true

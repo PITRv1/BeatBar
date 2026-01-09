@@ -1,0 +1,10 @@
+~ start
+{{data.beaterName}}: You want to pick a fight with me?
+- Fight
+	{{data.beaterName}}: This prison to hold [wave] me?
+	do StartFight()
+- Flee
+	{{data.beaterName}}: [torando]GRRRRRRRRRRRRRRAAAAAAA!!!
+	do DisengagePlayer()
+
+=> END

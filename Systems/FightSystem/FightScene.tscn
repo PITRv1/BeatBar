@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bq5msg8cvapkn"]
+[gd_scene load_steps=26 format=3 uid="uid://bq5msg8cvapkn"]
 
 [ext_resource type="Script" uid="uid://b5o4ecqcegu0o" path="res://Systems/FightSystem/FightManager.cs" id="1_fcsjg"]
 [ext_resource type="Theme" uid="uid://db6j0xu6r0484" path="res://Assets/GameTheme.tres" id="2_e1xvf"]
@@ -7,8 +7,9 @@
 [ext_resource type="FontFile" uid="uid://ciq30a7ewl7n" path="res://Assets/Fonts/TEXAT BOLD PERSONAL USE___.otf" id="3_q7xpu"]
 [ext_resource type="StyleBox" uid="uid://cb4okpax0kla1" path="res://Assets/FightButtonPanel.tres" id="4_ima3f"]
 [ext_resource type="Texture2D" uid="uid://vcpjowwlmgw1" path="res://Assets/Images/BeatMeaterTop.png" id="4_qdnc6"]
-[ext_resource type="Texture2D" uid="uid://dusr5mrsde3re" path="res://Systems/NpcSystem/Npcs/PlayerIcon.png" id="4_xdb1m"]
-[ext_resource type="Texture2D" uid="uid://ck8t8lgojjm78" path="res://Systems/NpcSystem/Npcs/BeaterIcon.png" id="5_qdnc6"]
+[ext_resource type="Texture2D" uid="uid://dusr5mrsde3re" path="res://Assets/Images/PlayerIcon.png" id="4_xdb1m"]
+[ext_resource type="Texture2D" uid="uid://ck8t8lgojjm78" path="res://Assets/Images/BeaterIcon.png" id="5_qdnc6"]
+[ext_resource type="Texture2D" uid="uid://dgyggt6t588rf" path="res://Assets/knuckle/black knuckle.png" id="10_qxivv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_swktf"]
 font = ExtResource("3_6h1pc")
@@ -259,7 +260,210 @@ _data = {
 &"dispMult": SubResource("Animation_ima3f")
 }
 
-[node name="FightScene" type="Control" node_paths=PackedStringArray("playerOneBeatMeater", "playerTwoBeatMeater", "playerOneMultiplierDisplay", "playerOneMultiplierDisplayHolder", "playerOneMultiplierDisplayAnimator", "countdownAnimator", "fightButton")]
+[sub_resource type="Gradient" id="Gradient_qdnc6"]
+offsets = PackedFloat32Array(0, 0.8838863, 0.9478673, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.06, 0, 0, 0.20392157, 0.53317535, 0, 0, 0.53317535, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qxivv"]
+gradient = SubResource("Gradient_qdnc6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_4rp0s"]
+resource_name = "damagePlayer"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageOverlay:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.019805342, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.3254902), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fist:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.039255373, 0.10427933, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(161, 460), Vector2(121, 523), Vector2(118.251724, 527.3285), Vector2(118.251724, 674)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fist:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.015824705, 0.12970799),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.74351025, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fist:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.08457182, 0.19800198),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.61, 0.61, 0), Color(1, 0.77, 0.77, 1), Color(1, 0.61, 0.61, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qbqvs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageOverlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fist:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(161, 460)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fist:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fist:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.61, 0.61, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l523o"]
+_data = {
+&"RESET": SubResource("Animation_qbqvs"),
+&"damagePlayer": SubResource("Animation_4rp0s")
+}
+
+[sub_resource type="Animation" id="Animation_l523o"]
+resource_name = "oppDamage"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03357021),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(895, 471), Vector2(950, 525)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.021628305),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.74351025]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0038621975, 0.08237293, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.77, 0.96550006, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.77, 0.96550006, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pppsq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(895, 471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.74351025]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.77, 0.96550006, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xwbuq"]
+_data = {
+&"RESET": SubResource("Animation_pppsq"),
+&"oppDamage": SubResource("Animation_l523o")
+}
+
+[node name="FightScene" type="Control" node_paths=PackedStringArray("playerOneBeatMeater", "playerTwoBeatMeater", "playerOneMultiplierDisplay", "playerOneMultiplierDisplayHolder", "playerOneMultiplierDisplayAnimator", "countdownAnimator", "fightButton", "playerDamageAniamtor", "oppDamageAniamtor")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -274,6 +478,8 @@ playerOneMultiplierDisplayHolder = NodePath("PlayerOneCritHolder")
 playerOneMultiplierDisplayAnimator = NodePath("PlayerOneCritHolder/AnimationPlayer")
 countdownAnimator = NodePath("AnimationPlayer")
 fightButton = NodePath("SpaceBarHolder/Button")
+playerDamageAniamtor = NodePath("DamageOverlay/PlayerDamage")
+oppDamageAniamtor = NodePath("Fist2/OppDamage")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -491,6 +697,57 @@ vertical_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerOneCritHolder"]
 libraries = {
 &"": SubResource("AnimationLibrary_xdb1m")
+}
+
+[node name="Fist" type="TextureRect" parent="."]
+modulate = Color(1, 0.61, 0.61, 0)
+layout_mode = 0
+offset_left = 161.0
+offset_top = 460.0
+offset_right = 372.00043
+offset_bottom = 568.0009
+pivot_offset = Vector2(105.5, 54)
+mouse_filter = 2
+texture = ExtResource("10_qxivv")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="DamageOverlay" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_qxivv")
+metadata/_edit_lock_ = true
+
+[node name="PlayerDamage" type="AnimationPlayer" parent="DamageOverlay"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_l523o")
+}
+
+[node name="Fist2" type="TextureRect" parent="."]
+modulate = Color(0.77, 0.96550006, 1, 0)
+layout_mode = 0
+offset_left = 950.0
+offset_top = 525.0
+offset_right = 1161.0006
+offset_bottom = 633.00055
+rotation = -0.74351025
+pivot_offset = Vector2(105.5, 54)
+mouse_filter = 2
+texture = ExtResource("10_qxivv")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
+
+[node name="OppDamage" type="AnimationPlayer" parent="Fist2"]
+libraries = {
+&"": SubResource("AnimationLibrary_xwbuq")
 }
 
 [connection signal="pressed" from="SpaceBarHolder/Button" to="." method="_OnPlayerOneBeat"]

@@ -219,11 +219,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
+stretch_shrink = 3
 
 [node name="SubViewport" type="SubViewport" parent="GameLayer/MapHolder/SubViewportContainer"]
 handle_input_locally = false
+canvas_item_default_texture_filter = 0
 audio_listener_enable_3d = true
-size = Vector2i(1280, 720)
+size = Vector2i(426, 240)
+size_2d_override = Vector2i(1280, 720)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="MapHolder" type="Node" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport"]

@@ -17,6 +17,10 @@ public partial class FightManager : Control
     [Export] public AnimationPlayer countdownAnimator;
     [Export] public Button fightButton;
     
+    [Export] public AnimationPlayer playerDamageAniamtor;
+    [Export] public AnimationPlayer oppDamageAniamtor;
+
+
 
     public Player playerOne;
     public BaseNpc playerTwo;
@@ -77,6 +81,7 @@ public partial class FightManager : Control
         playerTwoHealth -= playerOne.beaterDataComponent.beaterData.damage * randomDamageMultiplier + playerOne.beaterDataComponent.beaterData.damageMultiplier * 1.0f;
 
         playerTwo.PlayGoonDamageSound();
+        oppDamageAniamtor.Play("oppDamage");
 
         if (playerTwoHealth <= 0.0f)
         {
@@ -105,6 +110,7 @@ public partial class FightManager : Control
         if (inputLock) return;
 
         playerOneHealth -= playerTwo.beaterDataComponent.beaterData.damage + playerTwo.beaterDataComponent.beaterData.damageMultiplier * 1.0f;
+        playerDamageAniamtor.Play("damagePlayer");
 
         if (playerOneHealth <= 0.0f)
         {
