@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dkqa6brlneeds"
+path="res://.godot/imported/outro.dialogue-5fa8e14b806ba0fa1e8825bac99c642a.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/BeaterPal/outro.dialogue"
+dest_files=["res://.godot/imported/outro.dialogue-5fa8e14b806ba0fa1e8825bac99c642a.tres"]
+
+[params]
+
+defaults=true

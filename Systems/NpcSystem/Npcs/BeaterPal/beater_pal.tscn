@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdojm8yto8dyo"]
+
+[ext_resource type="PackedScene" uid="uid://baakfm3ug6mld" path="res://Systems/NpcSystem/TemplateNPC.tscn" id="1_1et1k"]
+[ext_resource type="Resource" uid="uid://drxun7l21msqa" path="res://Systems/NpcSystem/Npcs/BeaterPal/BeaterPalData.tres" id="2_1et1k"]
+[ext_resource type="Texture2D" uid="uid://deb3iikw0jqu" path="res://Assets/goons/green goons/green googley goon 1.png" id="3_jv21f"]
+
+[node name="BeaterPal" instance=ExtResource("1_1et1k")]
+
+[node name="BeaterDataComponent" parent="." index="0"]
+beaterData = ExtResource("2_1et1k")
+
+[node name="Sprite3D" parent="Visuals" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.108, 0)
+pixel_size = 0.07
+texture = ExtResource("3_jv21f")
+
+[node name="InteractionReciever" parent="." index="3" node_paths=PackedStringArray("geometryInstance")]
+geometryInstance = NodePath("../Visuals/Sprite3D")

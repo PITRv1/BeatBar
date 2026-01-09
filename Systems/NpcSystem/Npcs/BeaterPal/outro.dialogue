@@ -1,0 +1,9 @@
+~ start
+if endCondition
+	{{data.beaterName}}: Piss off and come back when you can beat me off.
+else
+	{{data.beaterName}}: You really are the guy to beat me off. Well fuck off.
+	{{data.beaterName}}: Here is you reward of {{data.reward}} Goon coins.
+	do GivePlayerMoney()
+do DisengagePlayer()
+=> END

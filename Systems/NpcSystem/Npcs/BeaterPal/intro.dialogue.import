@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://v47wqblcysc2"
+path="res://.godot/imported/intro.dialogue-8e9f492d35c6c38c8aa8722af790d69d.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/BeaterPal/intro.dialogue"
+dest_files=["res://.godot/imported/intro.dialogue-8e9f492d35c6c38c8aa8722af790d69d.tres"]
+
+[params]
+
+defaults=true
