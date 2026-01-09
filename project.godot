@@ -13,6 +13,7 @@ config_version=5
 config/name="BeatBar"
 run/main_scene="uid://xy8rwj04d4j8"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
