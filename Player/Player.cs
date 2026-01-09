@@ -40,13 +40,19 @@ public partial class Player : CharacterBody3D
 
     public override void _Ready()
     {
-        Input.MouseMode = Input.MouseModeEnum.Captured;
         Global.Instance.player = this;
 
         SignalBus.Instance.EngagementStarted += _OnEngagementStarted;
         SignalBus.Instance.EngagementEnded += _OnEngagementEnded;
 
         moneyDisplay.Text = "$  " + Convert.ToString(money);
+    }
+
+    public override void _ExitTree()
+    {
+        SignalBus.Instance.EngagementStarted -= _OnEngagementStarted;
+        SignalBus.Instance.EngagementEnded -= _OnEngagementEnded;
+
     }
 
 
@@ -165,6 +171,8 @@ public partial class Player : CharacterBody3D
         switch (currentState)
         {
             case States.FREE:
+                if (Input.MouseMode == Input.MouseModeEnum.Visible) return;
+
                 _UpdateCameraRotation();
                 _UpdateMovement(delta);
                 _UpdateCameraBob(delta);

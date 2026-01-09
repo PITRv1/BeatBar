@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://xy8rwj04d4j8"]
+[gd_scene load_steps=16 format=3 uid="uid://xy8rwj04d4j8"]
 
 [ext_resource type="Script" uid="uid://cnv2h5c5f2h30" path="res://Systems/GameManager/GameManager.cs" id="1_jxv1j"]
 [ext_resource type="PackedScene" uid="uid://rdwbogng5ew7" path="res://Map/map.tscn" id="2_73kla"]
 [ext_resource type="Shader" uid="uid://c3j7d2edufdo5" path="res://Assets/effeckt.gdshader" id="3_o270j"]
 [ext_resource type="Theme" uid="uid://db6j0xu6r0484" path="res://Assets/GameTheme.tres" id="3_vgs26"]
+[ext_resource type="FontFile" uid="uid://bid1lygbf4bxe" path="res://Assets/Fonts/Staubach.ttf" id="5_wisfj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o270j"]
 shader = ExtResource("3_o270j")
@@ -37,7 +38,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 1092)]
+"values": [Vector2(0, 729)]
 }
 
 [sub_resource type="Animation" id="Animation_ipkf0"]
@@ -59,13 +60,13 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("ColorRect2:position")
-tracks/1/interp = 2
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.19999999),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 1092), Vector2(0, 903)]
+"values": [Vector2(0, 729), Vector2(0, 596)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_73kla"]
@@ -88,6 +89,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_73kla"]
 resource_name = "fade"
@@ -105,17 +142,70 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_wisfj"]
+resource_name = "fadeMainMenu"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0035704821, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0027524587),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o270j"]
 _data = {
 &"RESET": SubResource("Animation_vgs26"),
-&"fade": SubResource("Animation_73kla")
+&"fade": SubResource("Animation_73kla"),
+&"fadeMainMenu": SubResource("Animation_wisfj")
 }
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("fightEffectAniamtor", "transitionAnimator", "gui")]
+[sub_resource type="Gradient" id="Gradient_wisfj"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.48815167, 0.7393365)
+colors = PackedColorArray(0, 0, 0, 0.6509804, 0, 0, 0, 0.32941177, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y6es2"]
+gradient = SubResource("Gradient_wisfj")
+fill_from = Vector2(1, 1)
+
+[node name="GameManager" type="Node" node_paths=PackedStringArray("fightEffectAniamtor", "transitionAnimator", "gui", "mainMenu", "mapHolder")]
 script = ExtResource("1_jxv1j")
 fightEffectAniamtor = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/EffectsLayer/AnimationPlayer")
 transitionAnimator = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/GUIFader")
 gui = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/Gui")
+mainMenu = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu")
+mapHolder = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/MapHolder")
 
 [node name="GameLayer" type="CanvasLayer" parent="."]
 
@@ -132,10 +222,13 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="GameLayer/MapHolder/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1920, 1080)
+audio_listener_enable_3d = true
+size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
-[node name="Map" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport" instance=ExtResource("2_73kla")]
+[node name="MapHolder" type="Node" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport"]
+
+[node name="Map" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/MapHolder" instance=ExtResource("2_73kla")]
 
 [node name="EffectsLayer" type="CanvasLayer" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport"]
 layer = 2
@@ -144,7 +237,7 @@ layer = 2
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = -192.0
-offset_bottom = -15.0
+offset_bottom = -71.0
 grow_horizontal = 2
 size_flags_vertical = 0
 mouse_filter = 2
@@ -155,8 +248,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 12.0
-offset_bottom = 189.00049
+offset_top = 9.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 0
@@ -186,3 +279,71 @@ root_node = NodePath("../../../../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_o270j")
 }
+
+[node name="MainMenu" type="Control" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer"]
+process_mode = 3
+z_index = 50
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_vgs26")
+
+[node name="TextRect" type="TextureRect" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_y6es2")
+
+[node name="Control" type="Control" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -117.0
+offset_right = 190.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Play" type="Button" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_wisfj")
+theme_override_font_sizes/font_size = 55
+text = "Play"
+flat = true
+
+[node name="Reset" type="Button" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_wisfj")
+theme_override_font_sizes/font_size = 55
+text = "Reset"
+flat = true
+
+[node name="Exit" type="Button" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_wisfj")
+theme_override_font_sizes/font_size = 55
+text = "Exit"
+flat = true
+
+[connection signal="pressed" from="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control/VBoxContainer/Play" to="." method="_HideMainMenu"]
+[connection signal="pressed" from="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control/VBoxContainer/Reset" to="." method="ResetMainScene"]
+[connection signal="pressed" from="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control/VBoxContainer/Exit" to="." method="_ExitGame"]

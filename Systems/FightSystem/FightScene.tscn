@@ -12,7 +12,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_swktf"]
 font = ExtResource("3_6h1pc")
-font_size = 500
+font_size = 300
 outline_size = 145
 outline_color = Color(0, 0, 0, 1)
 stacked_shadow_count = 1
@@ -127,69 +127,6 @@ _data = {
 &"countDown": SubResource("Animation_swktf")
 }
 
-[sub_resource type="Animation" id="Animation_ima3f"]
-resource_name = "dispMult"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/RichTextLabel2:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.26666668, 0.96666664),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-216, -189), Vector2(-221, -253)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/RichTextLabel2:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.12767567, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1.455, 1.455), Vector2(0.825, 0.825), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/RichTextLabel2:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 0.123333335, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.4956735, -0.6614797865058505, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/RichTextLabel2:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Control/RichTextLabel2:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.11, 0.4302115, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_mooue"]
 length = 0.001
 tracks/0/type = "value"
@@ -253,6 +190,69 @@ tracks/4/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ima3f"]
+resource_name = "dispMult"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/RichTextLabel2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.26666668, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-216, -189), Vector2(-221, -253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/RichTextLabel2:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.12767567, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.455, 1.455), Vector2(0.825, 0.825), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/RichTextLabel2:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.123333335, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.4956735, -0.6614797865058505, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/RichTextLabel2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/RichTextLabel2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.11, 0.4302115, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xdb1m"]
 _data = {
 &"RESET": SubResource("Animation_mooue"),
@@ -291,9 +291,9 @@ size_flags_horizontal = 3
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 68.0
+offset_left = 86.0
 offset_top = 73.0
-offset_right = 183.0
+offset_right = 165.0
 offset_bottom = -73.0
 grow_vertical = 2
 theme = ExtResource("2_e1xvf")
@@ -306,10 +306,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = -240.0
-offset_right = 263.92728
-offset_bottom = -19.0
+offset_left = 56.927277
+offset_top = -178.0
+offset_right = 195.0
+offset_bottom = -37.0
 grow_vertical = 0
 texture = ExtResource("3_ima3f")
 expand_mode = 1
@@ -320,10 +320,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 56.0
-offset_top = -1023.0
-offset_right = 331.92728
-offset_bottom = -802.0
+offset_left = 19.629032
+offset_top = -625.0
+offset_right = 187.03525
+offset_bottom = -454.0
 grow_vertical = 0
 scale = Vector2(0.59999985, 1)
 texture = ExtResource("4_qdnc6")
@@ -332,10 +332,10 @@ stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer/Control"]
 layout_mode = 0
-offset_left = 137.0
-offset_top = 873.0
-offset_right = 335.0
-offset_bottom = 1057.0
+offset_left = 99.0
+offset_top = 562.0
+offset_right = 283.0
+offset_bottom = 694.0
 texture = ExtResource("4_xdb1m")
 expand_mode = 2
 stretch_mode = 5
@@ -346,59 +346,53 @@ size_flags_horizontal = 3
 
 [node name="PlayerTwoBeatMeater" type="ProgressBar" parent="HBoxContainer/Control2"]
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -181.82
+offset_left = 478.0
 offset_top = 73.0
-offset_right = -66.82001
+offset_right = 557.0
 offset_bottom = -73.0
-grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("2_e1xvf")
 value = 100.0
 fill_mode = 3
 show_percentage = false
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control2"]
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/Control2"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -262.0
-offset_top = -240.0
-offset_right = 13.927246
-offset_bottom = -19.0
-grow_horizontal = 0
+offset_left = 446.00003
+offset_top = -178.0
+offset_right = 584.07275
+offset_bottom = -37.0
 grow_vertical = 0
 texture = ExtResource("3_ima3f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control2/TextureRect"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Control2/TextureRect3"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 56.0
-offset_top = -1025.0
-offset_right = 331.92728
-offset_bottom = -804.0
+offset_left = 19.629032
+offset_top = -625.0
+offset_right = 187.03525
+offset_bottom = -454.0
 grow_vertical = 0
-scale = Vector2(0.5999975, 1)
+scale = Vector2(0.59999985, 1)
 texture = ExtResource("4_qdnc6")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/Control2"]
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/Control2"]
 layout_mode = 0
-offset_left = 625.0
-offset_top = 871.0
-offset_right = 823.0
-offset_bottom = 1055.0
+offset_left = 354.0
+offset_top = 562.0
+offset_right = 538.0
+offset_bottom = 694.0
 texture = ExtResource("5_qdnc6")
 expand_mode = 2
 stretch_mode = 5
@@ -436,10 +430,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -400.0
-offset_top = -259.0
-offset_right = 400.0
-offset_bottom = -118.0
+offset_left = -268.0
+offset_top = -206.0
+offset_right = 268.0
+offset_bottom = -97.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -450,9 +444,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(400, 71)
+pivot_offset = Vector2(268, 54.5)
 theme_override_fonts/font = ExtResource("3_q7xpu")
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = ExtResource("4_ima3f")
 theme_override_styles/pressed = ExtResource("4_ima3f")
 theme_override_styles/hover = ExtResource("4_ima3f")
@@ -461,9 +455,9 @@ text = "SPACEBAR"
 
 [node name="PlayerOneCritHolder" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 1385.0
+offset_left = 732.0
 offset_top = -87.0
-offset_right = 1948.0
+offset_right = 1295.0
 offset_bottom = 501.0
 pivot_offset = Vector2(281.5, 294)
 
@@ -484,9 +478,9 @@ offset_bottom = 189.0
 rotation = 0.4956735
 scale = Vector2(1.455, 1.455)
 pivot_offset = Vector2(216.5, 189)
-theme_override_constants/outline_size = 65
+theme_override_constants/outline_size = 40
 theme_override_fonts/normal_font = ExtResource("3_6h1pc")
-theme_override_font_sizes/normal_font_size = 160
+theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[rainbow]1.5x"
 fit_content = true
