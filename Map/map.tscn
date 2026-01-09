@@ -1,4 +1,4 @@
-[gd_scene load_steps=755 format=4 uid="uid://rdwbogng5ew7"]
+[gd_scene load_steps=754 format=4 uid="uid://rdwbogng5ew7"]
 
 [ext_resource type="Texture2D" uid="uid://dhnhceiooxooc" path="res://Assets/Images/skyBeater.hdr" id="1_6od3y"]
 [ext_resource type="PackedScene" uid="uid://dkn7bmd732yw7" path="res://Player/player.tscn" id="1_7s3fs"]
@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://dyrldx54wsgto" path="res://Assets/Images/AndYetHeIsTheOneBecomingTheVeryThingHeSoughtToProtest.png" id="19_ob7li"]
 [ext_resource type="Texture2D" uid="uid://bhv7x3isng7cv" path="res://Assets/Images/HaveAnother.png" id="20_aflrc"]
 [ext_resource type="Texture2D" uid="uid://ck5c1oiljkrru" path="res://Assets/Images/finallyAndActualHumanMadeImage.png" id="21_1watw"]
-[ext_resource type="PackedScene" uid="uid://bdojm8yto8dyo" path="res://Systems/NpcSystem/Npcs/BeaterPal/beater_pal.tscn" id="21_176oc"]
 [ext_resource type="PackedScene" uid="uid://dmvrsmnuavknr" path="res://Assets/models/halfDoor.glb" id="23_1watw"]
 [ext_resource type="Texture2D" uid="uid://llnjf64wdrll" path="res://Assets/Images/lamp.png" id="23_6yweb"]
 [ext_resource type="Texture2D" uid="uid://blb0mp2wene2k" path="res://Assets/Images/hangingLamp.png" id="24_6yweb"]
@@ -4579,13 +4578,6 @@ fightPlayerPosition = NodePath("../ShopKeeperFightPos")
 
 [node name="ShopKeeperFightPos" type="Marker3D" parent="NPCS"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5091249, 0, 20.70104)
-
-[node name="BeaterPal" parent="NPCS" node_paths=PackedStringArray("fightPlayerPosition") instance=ExtResource("21_176oc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.720348, 0, 14.919274)
-fightPlayerPosition = NodePath("../BeaterPalFightPos")
-
-[node name="BeaterPalFightPos" type="Marker3D" parent="NPCS"]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -2.6393452, 0, 17.004498)
 
 [node name="Lighting" type="Node3D" parent="."]
 

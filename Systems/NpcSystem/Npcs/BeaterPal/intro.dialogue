@@ -1,9 +1,0 @@
-~ start
-{{data.beaterName}}: Im gonna wrestle your ass buster.
-- Fight
-	{{data.beaterName}}: Kill yourself [rainbow][wave][speed=0.08]NOW!
-	do StartFight()
-- Flee
-	{{data.beaterName}}: You coward!
-	do DisengagePlayer()
-=> END
