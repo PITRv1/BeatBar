@@ -14,7 +14,11 @@ config/name="BeatBar"
 run/main_scene="uid://xy8rwj04d4j8"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 run/max_fps=60
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://bd1twifg65pfg"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=10
 
 [autoload]
 
