@@ -6,6 +6,8 @@ public partial class InteractHightlight : Control
 {
     [Export] public Control itemHighlighterLeft {get;set;}
     [Export] public Control itemHighlighterRight {get;set;}
+    [Export] public TextureRect prompt {get;set;}
+
 
     [Export] public InteractionInitiator interactionInitiator;
 
@@ -23,12 +25,14 @@ public partial class InteractHightlight : Control
     
         itemHighlighterLeft.Visible = true;
         itemHighlighterRight.Visible = true;
+        prompt.Visible = true;
     }
 
     private void _OnHoveringEnded()
     {
         itemHighlighterLeft.Visible = false;
         itemHighlighterRight.Visible = false;
+        prompt.Visible = false;
 
     }
 
@@ -37,6 +41,7 @@ public partial class InteractHightlight : Control
     {
         Vector2 min = new(float.MaxValue, float.MaxValue);
         Vector2 max = new(float.MinValue, float.MinValue);
+        Vector2 mid = Vector2.Zero;
 
         for (int x = 0; x <= 1; x++)
         for (int y = 0; y <= 1; y++)
@@ -54,7 +59,7 @@ public partial class InteractHightlight : Control
 
         itemHighlighterLeft.Position = min;
         itemHighlighterRight.Position = max;  
-
+        prompt.Position = (min + max) * 0.5f;
     }
 
 }

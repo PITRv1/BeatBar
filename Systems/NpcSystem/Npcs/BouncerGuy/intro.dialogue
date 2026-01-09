@@ -1,0 +1,12 @@
+~ start
+{{data.beaterName}}: You should [wave] bounce [/wave] man.
+{{data.beaterName}}: You want problems?
+
+- Fight
+	{{data.beaterName}}: Alright I guess this is why they pay me
+	do StartFight()
+- Flee
+	{{data.beaterName}}: Yeah that's what I thought!
+	do DisengagePlayer()
+
+=> END

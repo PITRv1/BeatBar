@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://xy8rwj04d4j8"]
+[gd_scene load_steps=19 format=3 uid="uid://xy8rwj04d4j8"]
 
 [ext_resource type="Script" uid="uid://cnv2h5c5f2h30" path="res://Systems/GameManager/GameManager.cs" id="1_jxv1j"]
 [ext_resource type="PackedScene" uid="uid://rdwbogng5ew7" path="res://Map/map.tscn" id="2_73kla"]
 [ext_resource type="Shader" uid="uid://c3j7d2edufdo5" path="res://Assets/effeckt.gdshader" id="3_o270j"]
 [ext_resource type="Theme" uid="uid://db6j0xu6r0484" path="res://Assets/GameTheme.tres" id="3_vgs26"]
 [ext_resource type="FontFile" uid="uid://bid1lygbf4bxe" path="res://Assets/Fonts/Staubach.ttf" id="5_wisfj"]
+[ext_resource type="PackedScene" uid="uid://dmhx7qsbw6iv" path="res://Systems/VolumeSlider.tscn" id="6_y6es2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o270j"]
 shader = ExtResource("3_o270j")
@@ -125,6 +126,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/ColorRect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_73kla"]
 resource_name = "fade"
@@ -182,10 +207,38 @@ tracks/2/keys = {
 "values": [2, 0]
 }
 
+[sub_resource type="Animation" id="Animation_y6es2"]
+resource_name = "fadeInGame"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o270j"]
 _data = {
 &"RESET": SubResource("Animation_vgs26"),
 &"fade": SubResource("Animation_73kla"),
+&"fadeInGame": SubResource("Animation_y6es2"),
 &"fadeMainMenu": SubResource("Animation_wisfj")
 }
 
@@ -198,6 +251,9 @@ colors = PackedColorArray(0, 0, 0, 0.6509804, 0, 0, 0, 0.32941177, 1, 1, 1, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_y6es2"]
 gradient = SubResource("Gradient_wisfj")
 fill_from = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ohhxf"]
+font_size = 36
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("fightEffectAniamtor", "transitionAnimator", "gui", "mainMenu", "mapHolder")]
 script = ExtResource("1_jxv1j")
@@ -219,13 +275,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 3
+stretch_shrink = 2
 
 [node name="SubViewport" type="SubViewport" parent="GameLayer/MapHolder/SubViewportContainer"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 audio_listener_enable_3d = true
-size = Vector2i(426, 240)
+size = Vector2i(640, 360)
 size_2d_override = Vector2i(1280, 720)
 size_2d_override_stretch = true
 render_target_update_mode = 4
@@ -241,7 +297,8 @@ layer = 2
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = -192.0
-offset_bottom = -71.0
+offset_right = 68.106445
+offset_bottom = -32.0
 grow_horizontal = 2
 size_flags_vertical = 0
 mouse_filter = 2
@@ -253,7 +310,8 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 9.0
-offset_bottom = 130.0
+offset_right = 112.17529
+offset_bottom = 236.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 0
@@ -347,6 +405,52 @@ theme_override_fonts/font = ExtResource("5_wisfj")
 theme_override_font_sizes/font_size = 55
 text = "Exit"
 flat = true
+
+[node name="Label2" type="Label" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 184.0
+offset_right = 776.0
+offset_bottom = 230.0
+text = "SFX VOLUME"
+label_settings = SubResource("LabelSettings_ohhxf")
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control"]
+layout_mode = 0
+offset_left = -407.0
+offset_top = 175.0
+offset_right = -37.0
+offset_bottom = 240.0
+text = "Music VOlume"
+label_settings = SubResource("LabelSettings_ohhxf")
+vertical_alignment = 1
+
+[node name="MusicVolume" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control" instance=ExtResource("6_y6es2")]
+layout_mode = 1
+offset_left = -410.0
+offset_top = 55.0
+offset_right = -410.0
+offset_bottom = 55.0
+busName = "Piano"
+
+[node name="SFXVolume" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control" instance=ExtResource("6_y6es2")]
+layout_mode = 1
+offset_left = 396.0
+offset_top = 55.0
+offset_right = 396.0
+offset_bottom = 55.0
+busName = "SFX"
+
+[node name="ColorRect" type="ColorRect" parent="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer"]
+z_index = 80
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control/VBoxContainer/Play" to="." method="_HideMainMenu"]
 [connection signal="pressed" from="GameLayer/MapHolder/SubViewportContainer/SubViewport/GUILayer/MainMenu/Control/VBoxContainer/Reset" to="." method="ResetMainScene"]

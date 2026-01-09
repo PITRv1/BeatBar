@@ -2,8 +2,8 @@
 {{data.beaterName}}: Howdy partner! You wanna buy sommtin' from this bar of mine?
 - Yes
 	~ shop
-	{{data.beaterName}}: Alright well I can off ye some Muscle grower and some Heart pills I stole from some guy
-	- 20$ Heart Pills (Adds 5 points to your HP)
+	{{data.beaterName}}: Alright well I can offer ye some [color=green] Muscle grower (+ .2 Damage Mult)[color=white] and some [color=red]Heart pills (+ 5 health)[color=white] I stole from some guy
+	- 20$ Heart pills
 		do UpgradePlayerHealth()
 		if canUpgradeHealth
 			{{data.beaterName}}: Thanks for the purchase!
@@ -11,7 +11,7 @@
 			{{data.beaterName}}: Unlucky maybe get more money and come back some other time.
 		=> shop
 		
-	- 25$ Muscle Grower (Adds .2 point multiplier to your punches)
+	- 25$ Muscle grower
 		do UpgradePlayerDamageMult()
 		if canUpgradeDamageMult
 			{{data.beaterName}}: Thanks for the purchase!

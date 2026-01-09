@@ -1,0 +1,10 @@
+~ start
+{{data.beaterName}}: Hey do you need some project to be half completed.
+- Fight
+	{{data.beaterName}}: We guess you do! Get him Mate!
+	do StartFight()
+- Flee
+	{{data.beaterName}}: Fine but we do need your money do come back please!
+	do DisengagePlayer()
+
+=> END

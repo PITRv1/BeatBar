@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dw4uljsxmm226"
+path="res://.godot/imported/outro.dialogue-b04aa43da97eec8d2be7968252d0b560.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/BouncerGuy/outro.dialogue"
+dest_files=["res://.godot/imported/outro.dialogue-b04aa43da97eec8d2be7968252d0b560.tres"]
+
+[params]
+
+defaults=true

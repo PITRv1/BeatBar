@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsg3ceanc18qo"]
+
+[ext_resource type="PackedScene" uid="uid://baakfm3ug6mld" path="res://Systems/NpcSystem/TemplateNPC.tscn" id="1_23bsf"]
+[ext_resource type="Texture2D" uid="uid://dm47qymbpi83x" path="res://Assets/Images/Undefined.png" id="2_1awaf"]
+[ext_resource type="Resource" uid="uid://dgwitaklncl6u" path="res://Systems/NpcSystem/Npcs/undefined/undefindeData.tres" id="2_nxc6a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxc6a"]
+size = Vector3(1.7861328, 2.4018555, 1.9157715)
+
+[node name="Undefined" instance=ExtResource("1_23bsf")]
+
+[node name="BeaterDataComponent" parent="." index="0"]
+beaterData = ExtResource("2_nxc6a")
+
+[node name="Sprite3D" parent="Visuals" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1010207, 0)
+pixel_size = 0.007
+texture = ExtResource("2_1awaf")
+
+[node name="CollisionShape3D" parent="InteractionReciever" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2985063, 0)
+shape = SubResource("BoxShape3D_nxc6a")
+
+[node name="EyePosition" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6207681, 0)

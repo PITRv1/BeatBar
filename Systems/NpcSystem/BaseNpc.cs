@@ -16,11 +16,28 @@ public partial class BaseNpc : Node3D
     [Export] public Sprite3D beaterSprite {get; set;}
     [Export] public Marker3D eyePosition {get; set;}
     [Export] public AnimationPlayer fightAnimator {get; set;}
-    [Export] public AudioStreamPlayer3D audioPlayer {get; set;}
 
 
 
     [Export] private float watchDistance {get; set;} = 5.0f;
+    [ExportGroup("Audio")]
+    [Export] public AudioStreamPlayer3D beatAudioPlayer {get; set;}
+    [Export] public AudioStreamPlayer3D winAudioPlayer {get; set;}
+    [Export] public AudioStreamPlayer3D loseAudioPlayer {get; set;}
+    [Export] public AudioStreamPlayer3D botherAudioPlayer {get; set;}
+    [Export] public AudioStreamPlayer3D byeAudioPlayer {get; set;}
+    [Export] public AudioStreamPlayer3D fightAudioPlayer {get; set;}
+
+
+
+
+
+
+    [ExportGroup("Optional for bouncers")]
+    [Export] public StaticBody3D blockingWall;
+    [Export] public bool useDoorAnim = false;
+    [Export] public AnimationPlayer doorAnimator;
+
 
     Tween tween;
     public Timer fightCountdownTimer;
@@ -40,18 +57,27 @@ public partial class BaseNpc : Node3D
 
         fightCountdownTimer.Timeout += () => {canBeat = true;};
 
-        audioPlayer.ProcessMode = ProcessModeEnum.Inherit;
+        beatAudioPlayer.ProcessMode = ProcessModeEnum.Inherit;
+        winAudioPlayer.ProcessMode = ProcessModeEnum.Inherit;
+        loseAudioPlayer.ProcessMode = ProcessModeEnum.Inherit;
+        botherAudioPlayer.ProcessMode = ProcessModeEnum.Inherit;
+        byeAudioPlayer.ProcessMode = ProcessModeEnum.Inherit;
+        fightAudioPlayer.ProcessMode = ProcessModeEnum.Inherit;
     }
 
 
     private void DisengagePlayer()
     {
         SignalBus.Instance.EmitSignal(SignalBus.SignalName.EngagementEnded, this);
+
+        byeAudioPlayer.Play();
     }
 
     private void EngagePlayer()
     {
         SignalBus.Instance.EmitSignal(SignalBus.SignalName.EngagementStarted, this);
+
+        botherAudioPlayer.Play();
 
         DialogueManager.ShowDialogueBalloon(
             beaterDataComponent.beaterData.introDialogueResource,
@@ -68,6 +94,8 @@ public partial class BaseNpc : Node3D
     {
         SignalBus.Instance.EmitSignal(SignalBus.SignalName.FightStarted, this);
         
+        fightAudioPlayer.Play();
+
         ResetTween();
         tween.TweenProperty(
             Global.Instance.player,
@@ -95,6 +123,15 @@ public partial class BaseNpc : Node3D
                 }
             ]
         );
+
+        if (didWin)
+        {
+            winAudioPlayer.Play();
+        }
+        else
+        {
+            loseAudioPlayer.Play();
+        }
     }
 
     public void Beat(double delta)
@@ -155,7 +192,17 @@ public partial class BaseNpc : Node3D
 
     public void PlayGoonDamageSound()
     {
-        audioPlayer.Play();
+        beatAudioPlayer.Play();
     }
 
+
+    public void DisableWall()
+    {
+        blockingWall.QueueFree();
+    
+        if (useDoorAnim)
+        {
+            doorAnimator.Play("OpenDoors");
+        }
+    }
 }

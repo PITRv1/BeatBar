@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://kogfj27x0nmp"
+path="res://.godot/imported/intro.dialogue-135ab5ced55180222fc628cf40f9265c.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/BouncerGuy/intro.dialogue"
+dest_files=["res://.godot/imported/intro.dialogue-135ab5ced55180222fc628cf40f9265c.tres"]
+
+[params]
+
+defaults=true

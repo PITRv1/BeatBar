@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c17qnpl1pmh0i"]
+
+[ext_resource type="PackedScene" uid="uid://baakfm3ug6mld" path="res://Systems/NpcSystem/TemplateNPC.tscn" id="1_kobke"]
+[ext_resource type="Texture2D" uid="uid://s2j1jinj61gv" path="res://Assets/goons/bouncer/bouncer 1.png" id="2_i0s4r"]
+[ext_resource type="Resource" uid="uid://chypleux2kqhe" path="res://Systems/NpcSystem/Npcs/BouncerGuy/BouncerGuyData.tres" id="2_va0eo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_va0eo"]
+size = Vector3(1.4111328, 1.8453369, 1.3076172)
+
+[node name="BouncerGuy" instance=ExtResource("1_kobke")]
+
+[node name="BeaterDataComponent" parent="." index="0"]
+beaterData = ExtResource("2_va0eo")
+
+[node name="Label3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3110106, 0)
+
+[node name="Sprite3D" parent="Visuals" index="0"]
+render_priority = 10
+texture = ExtResource("2_i0s4r")
+
+[node name="CollisionShape3D" parent="InteractionReciever" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99973047, 0)
+shape = SubResource("BoxShape3D_va0eo")
+
+[node name="EyePosition" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.399739, 0)

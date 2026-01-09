@@ -1,9 +1,14 @@
-[gd_scene load_steps=15 format=4 uid="uid://baakfm3ug6mld"]
+[gd_scene load_steps=20 format=4 uid="uid://baakfm3ug6mld"]
 
 [ext_resource type="Script" uid="uid://1m3kyyh6ooia" path="res://Systems/NpcSystem/BaseNpc.cs" id="1_pgbsw"]
 [ext_resource type="PackedScene" uid="uid://bmkx5v22wa2w1" path="res://Systems/IntractionSystem/InteractionReceiver.tscn" id="2_b3j2t"]
 [ext_resource type="FontFile" uid="uid://d0480bk3i77km" path="res://Assets/Fonts/Montague.ttf" id="3_43j4k"]
 [ext_resource type="PackedScene" uid="uid://dkaecaap2cggv" path="res://Systems/Components/BeaterDataComponent.tscn" id="3_fx7ww"]
+[ext_resource type="AudioStream" uid="uid://b8nqmj7snyoh3" path="res://Assets/Audio/bother.ogg" id="5_ysj88"]
+[ext_resource type="AudioStream" uid="uid://c2rd5gqdodpjt" path="res://Assets/Audio/fightingStance.ogg" id="6_yhin7"]
+[ext_resource type="AudioStream" uid="uid://dx2da0l1418s4" path="res://Assets/Audio/bye.ogg" id="7_p8bvg"]
+[ext_resource type="AudioStream" uid="uid://dwkiotmu4d1w1" path="res://Assets/Audio/lose.ogg" id="8_kl3rl"]
+[ext_resource type="AudioStream" uid="uid://mduhpfq4oxwl" path="res://Assets/Audio/win.ogg" id="9_bqbuv"]
 
 [sub_resource type="Animation" id="Animation_lfup0"]
 length = 0.001
@@ -137,7 +142,7 @@ stream_2/stream = SubResource("AudioStreamWAV_ggxax")
 stream_3/stream = SubResource("AudioStreamWAV_epkis")
 stream_4/stream = SubResource("AudioStreamWAV_pu07e")
 
-[node name="TemplateNPC" type="Node3D" node_paths=PackedStringArray("beaterDataComponent", "nameLabel", "visualsContainer", "beaterSprite", "eyePosition", "fightAnimator", "audioPlayer")]
+[node name="TemplateNPC" type="Node3D" node_paths=PackedStringArray("beaterDataComponent", "nameLabel", "visualsContainer", "beaterSprite", "eyePosition", "fightAnimator", "beatAudioPlayer", "winAudioPlayer", "loseAudioPlayer", "botherAudioPlayer", "byeAudioPlayer", "fightAudioPlayer")]
 script = ExtResource("1_pgbsw")
 beaterDataComponent = NodePath("BeaterDataComponent")
 nameLabel = NodePath("Label3D")
@@ -145,12 +150,18 @@ visualsContainer = NodePath("Visuals")
 beaterSprite = NodePath("Visuals/Sprite3D")
 eyePosition = NodePath("EyePosition")
 fightAnimator = NodePath("AnimationPlayer")
-audioPlayer = NodePath("AudioStreamPlayer3D")
+beatAudioPlayer = NodePath("BeatingAudio")
+winAudioPlayer = NodePath("winPlayer")
+loseAudioPlayer = NodePath("losePlayer")
+botherAudioPlayer = NodePath("botherPlayer")
+byeAudioPlayer = NodePath("byePlayer")
+fightAudioPlayer = NodePath("fightPlayer")
 
 [node name="BeaterDataComponent" parent="." instance=ExtResource("3_fx7ww")]
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8057415, 0)
+visible = false
 billboard = 2
 double_sided = false
 modulate = Color(1, 0.42000002, 0.42000002, 1)
@@ -182,10 +193,37 @@ libraries = {
 &"": SubResource("AnimationLibrary_ggxax")
 }
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="BeatingAudio" type="AudioStreamPlayer3D" parent="."]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2677882, 0)
 stream = SubResource("AudioStreamRandomizer_v6ej7")
-bus = &"GoonSounds"
+volume_db = -3.936
+max_polyphony = 16
+bus = &"SFX"
+
+[node name="botherPlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 4
+stream = ExtResource("5_ysj88")
+bus = &"SFX"
+
+[node name="fightPlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 4
+stream = ExtResource("6_yhin7")
+bus = &"SFX"
+
+[node name="byePlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 4
+stream = ExtResource("7_p8bvg")
+bus = &"SFX"
+
+[node name="losePlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 4
+stream = ExtResource("8_kl3rl")
+bus = &"SFX"
+
+[node name="winPlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 4
+stream = ExtResource("9_bqbuv")
+bus = &"SFX"
 
 [connection signal="InteractionReceived" from="InteractionReciever" to="." method="EngagePlayer"]

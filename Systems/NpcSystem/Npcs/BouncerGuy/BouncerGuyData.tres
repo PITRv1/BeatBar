@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BeaterData" load_steps=4 format=3 uid="uid://chypleux2kqhe"]
+
+[ext_resource type="Script" uid="uid://bvemus4i1r3ej" path="res://Systems/NpcSystem/BeaterData.cs" id="1_x16qr"]
+[ext_resource type="Resource" uid="uid://kogfj27x0nmp" path="res://Systems/NpcSystem/Npcs/BouncerGuy/intro.dialogue" id="1_ypv7f"]
+[ext_resource type="Resource" uid="uid://dw4uljsxmm226" path="res://Systems/NpcSystem/Npcs/BouncerGuy/outro.dialogue" id="2_lexpd"]
+
+[resource]
+script = ExtResource("1_x16qr")
+beaterName = "BouncerMan"
+reward = 0
+damage = 0.5
+health = 70.0
+beatSpeed = 0.1
+introDialogueResource = ExtResource("1_ypv7f")
+outroDialogueResource = ExtResource("2_lexpd")
+metadata/_custom_type_script = "uid://bvemus4i1r3ej"

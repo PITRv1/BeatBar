@@ -1,7 +1,7 @@
 ~ start
-{{data.beaterName}}: Im gonna wrestle your ass buster.
+{{data.beaterName}}: You dare approach me mortal?
 - Fight
-	{{data.beaterName}}: Kill yourself [rainbow][wave][speed=0.08]NOW!
+	{{data.beaterName}}: You fool!
 	do StartFight()
 - Flee
 	{{data.beaterName}}: You coward!

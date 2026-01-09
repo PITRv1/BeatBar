@@ -57,7 +57,7 @@ public partial class FightManager : Control
         
         playerOneBeatMeater.Value = playerOneHealth;
         playerTwoBeatMeater.Value = playerTwoHealth;
-
+        
     }
 
     public void StartFightSquence()

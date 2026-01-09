@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dm6nun4dnn63m"]
+[gd_scene load_steps=23 format=4 uid="uid://dm6nun4dnn63m"]
 
 [ext_resource type="Script" uid="uid://cf0c8o1fo3amc" path="res://Systems/NpcSystem/Npcs/ShopKeeper/ShopKeeper.cs" id="1_kmb06"]
 [ext_resource type="PackedScene" uid="uid://bmkx5v22wa2w1" path="res://Systems/IntractionSystem/InteractionReceiver.tscn" id="2_u6c63"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dkaecaap2cggv" path="res://Systems/Components/BeaterDataComponent.tscn" id="3_mg83f"]
 [ext_resource type="FontFile" uid="uid://d0480bk3i77km" path="res://Assets/Fonts/Montague.ttf" id="3_nruha"]
 [ext_resource type="Texture2D" uid="uid://diw20i0ds00pp" path="res://Assets/goons/bartender/bartender 1.png" id="5_nruha"]
+[ext_resource type="AudioStream" uid="uid://b8nqmj7snyoh3" path="res://Assets/Audio/bother.ogg" id="7_53rin"]
+[ext_resource type="AudioStream" uid="uid://c2rd5gqdodpjt" path="res://Assets/Audio/fightingStance.ogg" id="8_e8wb4"]
+[ext_resource type="AudioStream" uid="uid://dx2da0l1418s4" path="res://Assets/Audio/bye.ogg" id="9_1o0rs"]
+[ext_resource type="AudioStream" uid="uid://dwkiotmu4d1w1" path="res://Assets/Audio/lose.ogg" id="10_nyd8h"]
+[ext_resource type="AudioStream" uid="uid://mduhpfq4oxwl" path="res://Assets/Audio/win.ogg" id="11_ymt13"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vj8fb"]
 size = Vector3(2.0058594, 2.3946533, 1.800293)
@@ -141,7 +146,7 @@ stream_2/stream = SubResource("AudioStreamWAV_p8bvg")
 stream_3/stream = SubResource("AudioStreamWAV_kl3rl")
 stream_4/stream = SubResource("AudioStreamWAV_bqbuv")
 
-[node name="ShopKeeper" type="Node3D" node_paths=PackedStringArray("beaterDataComponent", "nameLabel", "visualsContainer", "beaterSprite", "eyePosition", "fightAnimator", "audioPlayer")]
+[node name="ShopKeeper" type="Node3D" node_paths=PackedStringArray("beaterDataComponent", "nameLabel", "visualsContainer", "beaterSprite", "eyePosition", "fightAnimator", "beatAudioPlayer", "winAudioPlayer", "loseAudioPlayer", "botherAudioPlayer", "byeAudioPlayer", "fightAudioPlayer")]
 script = ExtResource("1_kmb06")
 beaterDataComponent = NodePath("BeaterDataComponent")
 nameLabel = NodePath("Label3D")
@@ -149,14 +154,20 @@ visualsContainer = NodePath("Visuals")
 beaterSprite = NodePath("Visuals/Sprite3D")
 eyePosition = NodePath("EyePosition")
 fightAnimator = NodePath("AnimationPlayer")
-audioPlayer = NodePath("AudioStreamPlayer3D")
 watchDistance = 7.0
+beatAudioPlayer = NodePath("AudioStreamPlayer3D")
+winAudioPlayer = NodePath("winPlayer")
+loseAudioPlayer = NodePath("losePlayer")
+botherAudioPlayer = NodePath("botherPlayer")
+byeAudioPlayer = NodePath("byePlayer")
+fightAudioPlayer = NodePath("fightPlayer")
 
 [node name="BeaterDataComponent" parent="." instance=ExtResource("3_mg83f")]
 beaterData = ExtResource("3_lwkym")
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.275, 0)
+visible = false
 billboard = 2
 double_sided = false
 modulate = Color(1, 0.42000002, 0.42000002, 1)
@@ -196,6 +207,33 @@ libraries = {
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2677882, 0)
 stream = SubResource("AudioStreamRandomizer_nruha")
-bus = &"GoonSounds"
+volume_db = -1.944
+max_polyphony = 16
+bus = &"SFX"
+
+[node name="botherPlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 4
+stream = ExtResource("7_53rin")
+bus = &"SFX"
+
+[node name="fightPlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 4
+stream = ExtResource("8_e8wb4")
+bus = &"SFX"
+
+[node name="byePlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 4
+stream = ExtResource("9_1o0rs")
+bus = &"SFX"
+
+[node name="losePlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 4
+stream = ExtResource("10_nyd8h")
+bus = &"SFX"
+
+[node name="winPlayer" type="AudioStreamPlayer3D" parent="."]
+process_mode = 4
+stream = ExtResource("11_ymt13")
+bus = &"SFX"
 
 [connection signal="InteractionReceived" from="InteractionReciever" to="." method="EngagePlayer"]

@@ -16,7 +16,8 @@ public partial class Player : CharacterBody3D
     [Export] public InteractionInitiator interactionInitiator;
     [Export] public BeaterDataComponent beaterDataComponent;
     [Export] public Label moneyDisplay;
-    [Export] public AudioStreamPlayer walkAudioPlayer; 
+    [Export] public AudioStreamPlayer3D walkAudioPlayer; 
+    [Export] public InteractHightlight interactionHighlighter;
 
     private BaseNpc currentOpponent;
 
@@ -110,10 +111,22 @@ public partial class Player : CharacterBody3D
             newVel.Y = Velocity.Y - 16.0f * (float)delta;
             newVel.Y = Mathf.Max(newVel.Y, -60.0f);
         }
+
         
         Velocity = newVel;
         
+        if (Velocity.Length() >= 1.0)
+        {
+            PlayWalkAudio();
+        }
+
         MoveAndSlide();
+    }
+
+    private void PlayWalkAudio()
+    {
+        if (walkAudioPlayer.Playing) return;
+        walkAudioPlayer.Play();
     }
 
     private void _LockCameraToPoint(Vector3 targetPos, double delta)
@@ -200,6 +213,8 @@ public partial class Player : CharacterBody3D
 
         Velocity = Vector3.Zero;
         interactionInitiator.blocked = true;
+
+        interactionHighlighter.Visible = false;
     }
 
     
@@ -210,6 +225,8 @@ public partial class Player : CharacterBody3D
         Input.MouseMode = Input.MouseModeEnum.Captured;
 
         interactionInitiator.blocked = false;
+
+        interactionHighlighter.Visible = true;
 
     }
 

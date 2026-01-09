@@ -1,0 +1,9 @@
+~ start
+if endCondition
+	{{data.beaterName}}: Get your weak [rainbow] ass [/rainbow] out of here!
+else
+	{{data.beaterName}}: Okay fine they don't pay me enough get on through.
+	{{data.beaterName}}: I'ma let you in.
+	do DisableWall()
+do DisengagePlayer()
+=> END

@@ -29,6 +29,7 @@ public partial class GameManager : Node
     		currentGuiScene = gui.GetChild<Control>(0);
         }
         
+        transitionAnimator.Play("fadeInGame");
     }
 
     public override void _Input(InputEvent @event)

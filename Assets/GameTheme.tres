@@ -28,6 +28,8 @@ modulate_color = Color(1, 0, 0, 1)
 [resource]
 Button/styles/focus = null
 Button/styles/hover = SubResource("StyleBoxFlat_lcet5")
+Button/styles/normal = null
+Button/styles/pressed = null
 Label/fonts/font = ExtResource("1_wca55")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_lcet5")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_xorm8")

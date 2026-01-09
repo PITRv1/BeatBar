@@ -1,0 +1,11 @@
+~ start
+if endCondition
+	{{data.beaterName}}: A BeatBar csapat stays undefeted in the undefined game!
+else
+	{{data.beaterName}}: Shit looks like we could only beat you off half way.
+	{{data.beaterName}}: Never could complete these things.
+	{{data.beaterName}}: Here is our reward money from Miskolc: ${{data.reward}}.
+	
+	do GivePlayerMoney()
+do DisengagePlayer()
+=> END
