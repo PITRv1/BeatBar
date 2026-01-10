@@ -1,0 +1,9 @@
+~ start
+if endCondition
+	{{data.beaterName}}: Hahahaha! Are you ready for round 2, haha!
+else
+	{{data.beaterName}}: [shake]Ouch, Ouch! I'm sorry, alright?!
+	{{data.beaterName}}: Here, take this and leave me alone... Ouch..
+	do GivePlayerMoney()
+do DisengagePlayer()
+=> END

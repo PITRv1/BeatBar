@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dvhoiuhrxl8yy"
+path="res://.godot/imported/outro.dialogue-0978f68ab85bf8163b9a7c906ef4a08a.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/Drunkard/outro.dialogue"
+dest_files=["res://.godot/imported/outro.dialogue-0978f68ab85bf8163b9a7c906ef4a08a.tres"]
+
+[params]
+
+defaults=true

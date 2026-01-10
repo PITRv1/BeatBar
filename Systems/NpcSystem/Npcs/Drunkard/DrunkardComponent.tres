@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BeaterData" load_steps=4 format=3 uid="uid://brw182hkces8e"]
+
+[ext_resource type="Resource" uid="uid://bovfnu7gs2xvi" path="res://Systems/NpcSystem/Npcs/Drunkard/intro.dialogue" id="1_clpsw"]
+[ext_resource type="Script" uid="uid://bvemus4i1r3ej" path="res://Systems/NpcSystem/BeaterData.cs" id="1_sl4io"]
+[ext_resource type="Resource" uid="uid://dvhoiuhrxl8yy" path="res://Systems/NpcSystem/Npcs/Drunkard/outro.dialogue" id="2_7318i"]
+
+[resource]
+script = ExtResource("1_sl4io")
+beaterName = "Tipsy Tony"
+reward = 20
+damageMultiplier = 1.0
+health = 75.0
+beatSpeed = 0.05
+introDialogueResource = ExtResource("1_clpsw")
+outroDialogueResource = ExtResource("2_7318i")
+metadata/_custom_type_script = "uid://bvemus4i1r3ej"

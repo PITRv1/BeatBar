@@ -1,0 +1,9 @@
+~ start
+{{data.beaterName}}: Ey, you want a fight? I'll beat you with my eyes closed!
+- Fight
+	{{data.beaterName}}: Ahaha! I'm going to enjoy this!
+	do StartFight()
+- Flee
+	{{data.beaterName}}: Hey, where are you going?
+	do DisengagePlayer()
+=> END

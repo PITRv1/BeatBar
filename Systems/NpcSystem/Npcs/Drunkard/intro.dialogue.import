@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bovfnu7gs2xvi"
+path="res://.godot/imported/intro.dialogue-e339d082fb950bee74256e375717383f.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/Drunkard/intro.dialogue"
+dest_files=["res://.godot/imported/intro.dialogue-e339d082fb950bee74256e375717383f.tres"]
+
+[params]
+
+defaults=true

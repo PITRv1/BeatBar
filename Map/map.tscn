@@ -1,4 +1,4 @@
-[gd_scene load_steps=772 format=4 uid="uid://rdwbogng5ew7"]
+[gd_scene load_steps=773 format=4 uid="uid://rdwbogng5ew7"]
 
 [ext_resource type="Texture2D" uid="uid://dhnhceiooxooc" path="res://Assets/Images/skyBeater.hdr" id="1_6od3y"]
 [ext_resource type="PackedScene" uid="uid://dkn7bmd732yw7" path="res://Player/player.tscn" id="1_7s3fs"]
@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://b4fki4k5qhc0h" path="res://Assets/Audio/music/music2.mp3" id="30_mo27p"]
 [ext_resource type="AudioStream" uid="uid://cpxltw7fytru5" path="res://Assets/Audio/music/ballin.mp3" id="31_rtxnd"]
 [ext_resource type="Texture2D" uid="uid://bt4u31ccn3x14" path="res://Assets/Decoration2D/alcohol 4.png" id="31_vpbp6"]
+[ext_resource type="PackedScene" uid="uid://tsjfe8qcgiu0" path="res://Systems/NpcSystem/Npcs/Drunkard/Drunkard.tscn" id="31_xp2kj"]
 [ext_resource type="AudioStream" uid="uid://dekoh8t7fnidq" path="res://Assets/Audio/music/music3.mp3" id="32_2fp1f"]
 [ext_resource type="Texture2D" uid="uid://bnfxnv73aspab" path="res://Assets/Decoration2D/bread.png" id="32_wp8xq"]
 [ext_resource type="Texture2D" uid="uid://nv0wheadmhq5" path="res://Assets/Decoration2D/finished plate.png" id="33_7ak5i"]
@@ -4673,6 +4674,13 @@ watchDistance = 100.0
 
 [node name="FightPos" type="Marker3D" parent="NPCS/Mafia Boss"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.450581e-09, 0, 1.2263756)
+
+[node name="Tipsy Tony" parent="NPCS" node_paths=PackedStringArray("fightPlayerPosition") instance=ExtResource("31_xp2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0419495, 0.019999862, 20.75746)
+fightPlayerPosition = NodePath("FightPos")
+
+[node name="FightPos" type="Marker3D" parent="NPCS/Tipsy Tony"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0859451)
 
 [node name="Lighting" type="Node3D" parent="."]
 visible = false
