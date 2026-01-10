@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BeaterData" load_steps=4 format=3 uid="uid://c3qcyvli16aao"]
+
+[ext_resource type="Resource" uid="uid://dfxrg50gsk5gx" path="res://Systems/NpcSystem/Npcs/Green Guy/intro.dialogue" id="1_ram2u"]
+[ext_resource type="Resource" uid="uid://bw10p63wc47fw" path="res://Systems/NpcSystem/Npcs/Green Guy/outro.dialogue" id="2_hgjva"]
+[ext_resource type="Script" uid="uid://bvemus4i1r3ej" path="res://Systems/NpcSystem/BeaterData.cs" id="3_jokal"]
+
+[resource]
+script = ExtResource("3_jokal")
+beaterName = "Sentient Salad"
+reward = 15
+damageMultiplier = 50.0
+health = 50.0
+beatSpeed = 3.0
+introDialogueResource = ExtResource("1_ram2u")
+outroDialogueResource = ExtResource("2_hgjva")
+metadata/_custom_type_script = "uid://bvemus4i1r3ej"

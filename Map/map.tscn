@@ -1,4 +1,4 @@
-[gd_scene load_steps=771 format=4 uid="uid://rdwbogng5ew7"]
+[gd_scene load_steps=772 format=4 uid="uid://rdwbogng5ew7"]
 
 [ext_resource type="Texture2D" uid="uid://dhnhceiooxooc" path="res://Assets/Images/skyBeater.hdr" id="1_6od3y"]
 [ext_resource type="PackedScene" uid="uid://dkn7bmd732yw7" path="res://Player/player.tscn" id="1_7s3fs"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://blvxexwemyqud" path="res://Assets/goons/bouncer/bouncer 3.png" id="24_y544d"]
 [ext_resource type="Texture2D" uid="uid://g5ivvms6arnt" path="res://Assets/Images/chandelier.png" id="25_43pbm"]
 [ext_resource type="Script" uid="uid://bvemus4i1r3ej" path="res://Systems/NpcSystem/BeaterData.cs" id="25_tdcdu"]
+[ext_resource type="PackedScene" uid="uid://cv6yy6y5suaj5" path="res://Systems/NpcSystem/Npcs/Green Guy/green guy.tscn" id="28_2d0co"]
 [ext_resource type="PackedScene" uid="uid://dsg3ceanc18qo" path="res://Systems/NpcSystem/Npcs/undefined/undefined.tscn" id="28_tdcdu"]
 [ext_resource type="Texture2D" uid="uid://caba8u3rog2pa" path="res://Assets/Decoration2D/alcohol 1.png" id="28_tn5do"]
 [ext_resource type="Texture2D" uid="uid://ce2xw5ywmkctf" path="res://Assets/Decoration2D/alcohol 2.png" id="29_176oc"]
@@ -4650,6 +4651,13 @@ volume_db = -1.944
 
 [node name="FightPos" type="Marker3D" parent="NPCS/BouncerGuyUpperRight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06805897, -0.01999998, -1.8372784)
+
+[node name="Green guy" parent="NPCS" node_paths=PackedStringArray("fightPlayerPosition") instance=ExtResource("28_2d0co")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.156295, 0.01999998, 13.479761)
+fightPlayerPosition = NodePath("FightPos")
+
+[node name="FightPos" type="Marker3D" parent="NPCS/Green guy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.566927)
 
 [node name="Undefined" parent="NPCS" node_paths=PackedStringArray("fightPlayerPosition") instance=ExtResource("28_tdcdu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.779171, -0.24515271, 28.73793)

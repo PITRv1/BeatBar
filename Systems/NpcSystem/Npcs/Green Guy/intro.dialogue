@@ -1,0 +1,9 @@
+~ start
+{{data.beaterName}}: Hey, do you think I'm a sentient salad or a dangerous salad?
+- Sentient salad
+	{{data.beaterName}}: I'll knock your teeth out for that.
+	do StartFight()
+- Dangerous Salad
+	{{data.beaterName}}: Right... You're a smart one.
+	do DisengagePlayer()
+=> END

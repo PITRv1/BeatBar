@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv6yy6y5suaj5"]
+
+[ext_resource type="PackedScene" uid="uid://baakfm3ug6mld" path="res://Systems/NpcSystem/TemplateNPC.tscn" id="1_8lqgh"]
+[ext_resource type="Texture2D" uid="uid://dv3oiapep8v53" path="res://Assets/goons/green goons/green ring goon 1.png" id="2_0h1py"]
+[ext_resource type="Resource" uid="uid://c3qcyvli16aao" path="res://Systems/NpcSystem/Npcs/Green Guy/GreenGuy Component.tres" id="2_llg1v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_76p7u"]
+size = Vector3(1, 2.097, 1)
+
+[node name="Green guy" instance=ExtResource("1_8lqgh")]
+
+[node name="BeaterDataComponent" parent="." index="0"]
+beaterData = ExtResource("2_llg1v")
+
+[node name="Sprite3D" parent="Visuals" index="0"]
+texture = ExtResource("2_0h1py")
+
+[node name="CollisionShape3D" parent="InteractionReciever" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_76p7u")

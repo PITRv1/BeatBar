@@ -1,0 +1,9 @@
+~ start
+if endCondition
+	{{data.beaterName}}: Say that again and I'll make a personal appointment to the dentist for you.
+else
+	{{data.beaterName}}: Alright, I get it! 
+	{{data.beaterName}}: I'm not dangerous! Happy?!
+	do GivePlayerMoney()
+do DisengagePlayer()
+=> END
