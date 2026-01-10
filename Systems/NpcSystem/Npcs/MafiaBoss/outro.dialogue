@@ -1,0 +1,11 @@
+~ start
+if endCondition
+	{{data.beaterName}}: You're lucky I spared ya, kid.
+	{{data.beaterName}}: I won't be this merciful next time...
+	
+else
+	{{data.beaterName}}: [shake] Agh! You hit tougher than you look.
+	{{data.beaterName}}: Here, you've earned it, kid.
+	do GivePlayerMoney()
+do DisengagePlayer()
+=> END

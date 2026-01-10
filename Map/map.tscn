@@ -1,4 +1,4 @@
-[gd_scene load_steps=770 format=4 uid="uid://rdwbogng5ew7"]
+[gd_scene load_steps=771 format=4 uid="uid://rdwbogng5ew7"]
 
 [ext_resource type="Texture2D" uid="uid://dhnhceiooxooc" path="res://Assets/Images/skyBeater.hdr" id="1_6od3y"]
 [ext_resource type="PackedScene" uid="uid://dkn7bmd732yw7" path="res://Player/player.tscn" id="1_7s3fs"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://dsg3ceanc18qo" path="res://Systems/NpcSystem/Npcs/undefined/undefined.tscn" id="28_tdcdu"]
 [ext_resource type="Texture2D" uid="uid://caba8u3rog2pa" path="res://Assets/Decoration2D/alcohol 1.png" id="28_tn5do"]
 [ext_resource type="Texture2D" uid="uid://ce2xw5ywmkctf" path="res://Assets/Decoration2D/alcohol 2.png" id="29_176oc"]
+[ext_resource type="PackedScene" uid="uid://dio0f2xm50rm4" path="res://Systems/NpcSystem/Npcs/MafiaBoss/mafia_boss.tscn" id="29_hx068"]
 [ext_resource type="AudioStream" uid="uid://b3skkngeqnj0" path="res://Assets/Audio/music/music1.mp3" id="29_qttqk"]
 [ext_resource type="Texture2D" uid="uid://bmyr8yl5ylauk" path="res://Assets/Decoration2D/alcohol 3.png" id="30_07quh"]
 [ext_resource type="AudioStream" uid="uid://b4fki4k5qhc0h" path="res://Assets/Audio/music/music2.mp3" id="30_mo27p"]
@@ -4656,6 +4657,13 @@ fightPlayerPosition = NodePath("FightPos")
 
 [node name="FightPos" type="Marker3D" parent="NPCS/Undefined"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7778039, -0.08770156, -0.31199837)
+
+[node name="Mafia Boss" parent="NPCS" node_paths=PackedStringArray("fightPlayerPosition") instance=ExtResource("29_hx068")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07935536, 4.52, 23.746979)
+fightPlayerPosition = NodePath("FightPos")
+
+[node name="FightPos" type="Marker3D" parent="NPCS/Mafia Boss"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.450581e-09, 0, 1.2263756)
 
 [node name="Lighting" type="Node3D" parent="."]
 visible = false

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dkajae3ssgace"
+path="res://.godot/imported/intro.dialogue-9a27eadb05046ad02d53640bb77c9694.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/MafiaBoss/intro.dialogue"
+dest_files=["res://.godot/imported/intro.dialogue-9a27eadb05046ad02d53640bb77c9694.tres"]
+
+[params]
+
+defaults=true

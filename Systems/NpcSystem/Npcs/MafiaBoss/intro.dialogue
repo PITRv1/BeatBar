@@ -1,0 +1,9 @@
+~ start
+{{data.beaterName}}: [shake] Careful, kid. You don't know who you're messing with...
+- Fight
+	{{data.beaterName}}: El Capone sends his regards...
+	do StartFight()
+- Flee
+	{{data.beaterName}}: [shake]At least you're smart enough not to mess with me.
+	do DisengagePlayer()
+=> END

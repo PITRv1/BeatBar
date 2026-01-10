@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b7a0lyvx8gvou"
+path="res://.godot/imported/outro.dialogue-ca0414faeb701c6d0cafabec935257e7.tres"
+
+[deps]
+
+source_file="res://Systems/NpcSystem/Npcs/MafiaBoss/outro.dialogue"
+dest_files=["res://.godot/imported/outro.dialogue-ca0414faeb701c6d0cafabec935257e7.tres"]
+
+[params]
+
+defaults=true

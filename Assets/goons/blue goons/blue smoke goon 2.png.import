@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://23n1g2bvb2pk"
-path.s3tc="res://.godot/imported/blue smoke goon 2.png-f646b0cf11f09ff8b897d6af22380721.s3tc.ctex"
+path="res://.godot/imported/blue smoke goon 2.png-f646b0cf11f09ff8b897d6af22380721.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/goons/blue goons/blue smoke goon 2.png"
-dest_files=["res://.godot/imported/blue smoke goon 2.png-f646b0cf11f09ff8b897d6af22380721.s3tc.ctex"]
+dest_files=["res://.godot/imported/blue smoke goon 2.png-f646b0cf11f09ff8b897d6af22380721.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

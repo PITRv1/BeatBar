@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BeaterData" load_steps=4 format=3 uid="uid://bwrfeaxk62d2"]
+
+[ext_resource type="Resource" uid="uid://dkajae3ssgace" path="res://Systems/NpcSystem/Npcs/MafiaBoss/intro.dialogue" id="1_kqnn4"]
+[ext_resource type="Script" uid="uid://bvemus4i1r3ej" path="res://Systems/NpcSystem/BeaterData.cs" id="1_spyx1"]
+[ext_resource type="Resource" uid="uid://b7a0lyvx8gvou" path="res://Systems/NpcSystem/Npcs/MafiaBoss/outro.dialogue" id="2_i1ehb"]
+
+[resource]
+script = ExtResource("1_spyx1")
+beaterName = "Mafia Boss"
+reward = 300
+damageMultiplier = 20.0
+health = 300.0
+beatSpeed = 1.0
+introDialogueResource = ExtResource("1_kqnn4")
+outroDialogueResource = ExtResource("2_i1ehb")
+metadata/_custom_type_script = "uid://bvemus4i1r3ej"
