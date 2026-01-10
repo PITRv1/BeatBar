@@ -8,9 +8,6 @@
 script = ExtResource("1_spyx1")
 beaterName = "Mafia Boss"
 reward = 300
-damageMultiplier = 20.0
-health = 300.0
-beatSpeed = 1.0
 introDialogueResource = ExtResource("1_kqnn4")
 outroDialogueResource = ExtResource("2_i1ehb")
 metadata/_custom_type_script = "uid://bvemus4i1r3ej"

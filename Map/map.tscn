@@ -4661,6 +4661,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7778039, -0.08770156, -0.3
 [node name="Mafia Boss" parent="NPCS" node_paths=PackedStringArray("fightPlayerPosition") instance=ExtResource("29_hx068")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07935536, 4.52, 23.746979)
 fightPlayerPosition = NodePath("FightPos")
+watchDistance = 100.0
 
 [node name="FightPos" type="Marker3D" parent="NPCS/Mafia Boss"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.450581e-09, 0, 1.2263756)
