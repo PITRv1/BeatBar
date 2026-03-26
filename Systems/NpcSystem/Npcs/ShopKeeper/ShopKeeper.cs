@@ -5,6 +5,7 @@ public partial class ShopKeeper : BaseNpc
 {
     bool canUpgradeHealth = false;
     bool canUpgradeDamageMult = false;
+    int pillsBought = 0;
 
 
     public void UpgradePlayerHealth()
@@ -34,6 +35,14 @@ public partial class ShopKeeper : BaseNpc
 
             Global.Instance.player.beaterDataComponent.beaterData.damageMultiplier += .2f;
             Global.Instance.player.TakeMoney(25);
+        }
+    }
+
+    public void UpgradePlayerDamageMultLoop()
+    {
+        while (Global.Instance.player.money >= 25)
+        {
+            UpgradePlayerDamageMult();
         }
     }
 }

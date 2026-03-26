@@ -12,11 +12,21 @@
 		=> shop
 		
 	- 25$ Muscle grower
-		do UpgradePlayerDamageMult()
-		if canUpgradeDamageMult
-			{{data.beaterName}}: Thanks for the purchase!
-		else
-			{{data.beaterName}}: Unlucky maybe get more money and come back some other time.
+		{{data.beaterName}}: How many do you wanna buy?
+		- only one
+			do UpgradePlayerDamageMult()
+			if canUpgradeDamageMult
+				{{data.beaterName}}: Thanks for the purchase!
+			else
+				{{data.beaterName}}: Unlucky maybe get more money and come back some other time.
+			=> shop
+		- As many as I can buy!
+			do UpgradePlayerDamageMultLoop()
+			if canUpgradeDamageMult
+				{{data.beaterName}}: Thanks for purchasing {{pillsBought}} pills!
+			else
+				{{data.beaterName}}: Unlucky maybe get more money and come back some other time.
+			=> shop
 		=> shop
 	- Leave
 		{{data.beaterName}}: I'll be hear when you need something!
